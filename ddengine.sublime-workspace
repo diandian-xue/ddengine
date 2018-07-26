@@ -1,0 +1,2228 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"_add",
+				"_add_evt_2_poll"
+			],
+			[
+				"playEf",
+				"playEffect"
+			],
+			[
+				"option",
+				"optionIndex"
+			],
+			[
+				"ap",
+				"append"
+			],
+			[
+				"WZM",
+				"WZMJ_MAN_HU_EFFECT"
+			],
+			[
+				"handCar",
+				"handCardZiPaiCount"
+			],
+			[
+				"hightLI",
+				"hightLightTheLastZiPai"
+			],
+			[
+				"WzmjRepl",
+				"WzmjReplayScene.lua"
+			],
+			[
+				"WZmjGame",
+				"WzmjGameNetCmdMain"
+			],
+			[
+				"outp",
+				"outputDir"
+			],
+			[
+				"PI",
+				"PINEAPPLE_GUN_FAN_TYPE"
+			],
+			[
+				"PIN_MO",
+				"PINEAPPLE_MODE_TYPE"
+			],
+			[
+				"TOTAL",
+				"TOTAL_COUNT"
+			],
+			[
+				"TOTA",
+				"TOTAL_COUNT"
+			],
+			[
+				"getuserB",
+				"getUserByChairId"
+			],
+			[
+				"getUs",
+				"getUserByChairId"
+			],
+			[
+				"Wzmj",
+				"WzmjTableInfo"
+			],
+			[
+				"chair",
+				"chairId"
+			],
+			[
+				"getGa",
+				"getGameState"
+			],
+			[
+				"GameCon",
+				"GameConfig_template.lua"
+			],
+			[
+				"PTY",
+				"PAY_TYPE_DESC"
+			],
+			[
+				"l",
+				"lines"
+			],
+			[
+				"lin",
+				"lineInfo"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"lineS",
+				"linesSelected"
+			],
+			[
+				"addC",
+				"addClick"
+			],
+			[
+				"sele",
+				"selectLines"
+			],
+			[
+				"m_lab",
+				"m_labelSkin"
+			],
+			[
+				"m_ruleBtn",
+				"m_ruleBtnEndPos"
+			],
+			[
+				"tit",
+				"titleX"
+			],
+			[
+				"m_ruleStar",
+				"m_ruleTitleStartPos"
+			],
+			[
+				"re",
+				"removeFromParent"
+			],
+			[
+				"m_ly",
+				"m_lybtn_2"
+			],
+			[
+				"fun",
+				"function\tfunction"
+			],
+			[
+				"EM",
+				"EM_FIELD_NAME"
+			],
+			[
+				"clas",
+				"classicData"
+			],
+			[
+				"arenaT",
+				"arenaTypes"
+			],
+			[
+				"of",
+				"offy"
+			],
+			[
+				"dis",
+				"dispatcher"
+			],
+			[
+				"_ca",
+				"_cardsData"
+			],
+			[
+				"getPos",
+				"getPosition"
+			],
+			[
+				"view",
+				"views"
+			],
+			[
+				"_dispa",
+				"_dispatchAnimSpace"
+			],
+			[
+				"_dis",
+				"_dispatchAnimFn"
+			],
+			[
+				"_",
+				"_dispatchAnimFn"
+			],
+			[
+				"_disap",
+				"_dispatchAnimTime"
+			],
+			[
+				"getPosi",
+				"getPositionX"
+			],
+			[
+				"_rw",
+				"_rowCards"
+			],
+			[
+				"cardV",
+				"_cardViews"
+			],
+			[
+				"_R",
+				"_rowEndX"
+			],
+			[
+				"dispa",
+				"dispatchCards"
+			],
+			[
+				"addE",
+				"addEffect_Kingbomb"
+			],
+			[
+				"addEF",
+				"addEffect_BOMB"
+			],
+			[
+				"addEffe",
+				"addEffect_ShunZi"
+			],
+			[
+				"_ri",
+				"_rightDiscards"
+			],
+			[
+				"_self",
+				"_selfDiscards"
+			],
+			[
+				"cmdLea",
+				"cmdLeaveTableNotify"
+			],
+			[
+				"LE_CARD_SIN",
+				"LE_CARD_SINGLE_LINE"
+			],
+			[
+				"Spti",
+				"Sprite_effect"
+			],
+			[
+				"chatT",
+				"chatTxtConf"
+			],
+			[
+				"cons",
+				"consume_itemcf"
+			],
+			[
+				"con",
+				"consume_num"
+			],
+			[
+				"consu",
+				"consume_name"
+			],
+			[
+				"vers",
+				"versionInfo"
+			],
+			[
+				"outpu",
+				"outputVersionPath"
+			],
+			[
+				"cmdB",
+				"cmdBagInfoNotify"
+			],
+			[
+				"onSho",
+				"onShopItemClick"
+			],
+			[
+				"table",
+				"tableIndex2ShopType"
+			],
+			[
+				"_btnTab",
+				"_btnTablebarProp"
+			],
+			[
+				"pop",
+				"PopupMgr"
+			],
+			[
+				"Image_",
+				"Image_pticon"
+			],
+			[
+				"Lis",
+				"ListView_ptitles"
+			],
+			[
+				"headB",
+				"headboxConf"
+			],
+			[
+				"to",
+				"ToggleBtn.lua"
+			],
+			[
+				"reuq",
+				"require"
+			],
+			[
+				"pl",
+				"players"
+			],
+			[
+				"Tab",
+				"TableCtrl"
+			],
+			[
+				"req",
+				"reqModifyPlayerFeild"
+			],
+			[
+				"setPla",
+				"setPlayerNameEditing"
+			],
+			[
+				"EM_",
+				"ENUM_AUTH_TYPE"
+			],
+			[
+				"lis",
+				"listenPlayerCtrl"
+			],
+			[
+				"s_co",
+				"s_controlMusicEffect"
+			],
+			[
+				"noshuf",
+				"noshuffleData"
+			],
+			[
+				"noshuff",
+				"noshuffleData"
+			],
+			[
+				"noshu",
+				"noshuffleData"
+			],
+			[
+				"noshuFF",
+				"noshuffleTypes"
+			],
+			[
+				"_no",
+				"_normalBoxs"
+			],
+			[
+				"Roun",
+				"RoundArenaCtrl"
+			],
+			[
+				"onBtnC",
+				"onBtnCkbgWoman"
+			],
+			[
+				"winR",
+				"winRoundCount"
+			],
+			[
+				"lua_push",
+				"lua_pushstring"
+			],
+			[
+				"_btn",
+				"_btnTbarItemCoupon"
+			],
+			[
+				"_btnT",
+				"_btnTbarItemProp"
+			],
+			[
+				"CSCM",
+				"CSCMD"
+			],
+			[
+				"de",
+				"delistenAll"
+			],
+			[
+				"ga",
+				"_gate"
+			],
+			[
+				"ini",
+				"initalizeWindows"
+			],
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"devi",
+				"device_no"
+			],
+			[
+				"dev",
+				"deviceInfo"
+			],
+			[
+				"SVr",
+				"SvrConfReqError"
+			],
+			[
+				"siz",
+				"size_t"
+			],
+			[
+				"info_fon",
+				"info_font_frame"
+			],
+			[
+				"info_",
+				"info_font"
+			],
+			[
+				"enc",
+				"encrypt4k"
+			],
+			[
+				"base",
+				"base64encode"
+			],
+			[
+				"sups",
+				"supstr"
+			],
+			[
+				"getS",
+				"getFontSp"
+			],
+			[
+				"dia",
+				"dialog_bg_right"
+			],
+			[
+				"dial",
+				"dialog_bg_self"
+			],
+			[
+				"_b",
+				"_btn_tablebar_info"
+			],
+			[
+				"_btn_",
+				"_btn_tablebar_fashion"
+			],
+			[
+				"shopw",
+				"showGroup"
+			],
+			[
+				"_tg",
+				"_tgbtn_emoji"
+			],
+			[
+				"_t",
+				"_tgbtn_chat"
+			],
+			[
+				"tgb",
+				"tgbtn_chat"
+			],
+			[
+				"testMa",
+				"testMatchTimeout"
+			],
+			[
+				"get",
+				"getUserData"
+			],
+			[
+				"cmdMa",
+				"cmdMatchStatusNotify"
+			],
+			[
+				"Sc",
+				"SceneManager"
+			],
+			[
+				"ran",
+				"random"
+			],
+			[
+				"selfC",
+				"_selfCardOpt"
+			],
+			[
+				"_btnS",
+				"_btnShowCardsExpire"
+			],
+			[
+				"_left",
+				"_leftHandcards_2"
+			],
+			[
+				"_rig",
+				"_rightDiscards"
+			],
+			[
+				"_Ri",
+				"_rightHandcards_1"
+			],
+			[
+				"Pass",
+				"PassCardNtf"
+			],
+			[
+				"su",
+				"suggests"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ddcl/ddclthread.c",
+			"settings":
+			{
+				"buffer_size": 6265,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ddcl/ddclmsg.h",
+			"settings":
+			{
+				"buffer_size": 558,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "example/simple-httpd/simple-httpd-main.c",
+			"settings":
+			{
+				"buffer_size": 2624,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ddcl/ddclservice.h",
+			"settings":
+			{
+				"buffer_size": 1612,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ddcl/ddclsocket.h",
+			"settings":
+			{
+				"buffer_size": 999,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 252 files for \"DDLUA_ERROR\" (case sensitive)\n\nC:\\Users\\diandian\\OneDrive\\ddengine\\ddcl\\bind\\src\\lcl.h:\n   42  #define DDLUA_PUSHFUNC(L, NAME, F)  lua_pushstring(L, NAME); lua_pushcfunction(L, F); lua_settable(L, -3)\n   43  #define DDLUA_PUSHENUM(L, NAME, M)  lua_pushstring(L, NAME); lua_pushinteger(L, M); lua_settable(L, -3)\n   44: #define DDLUA_ERROR(L, ERR, ...) lua_pushfstring(L, ERR, __VA_ARGS__); lua_error(L)\n   45  \n   46  CLLUA int\n\nC:\\Users\\diandian\\OneDrive\\ddengine\\ddcl\\bind\\src\\lfile.c:\n   13      switch(err){\n   14      case DDCL_FILE_NOT_EXIST:\n   15:         DDLUA_ERROR(L, \"error: path is not exist\", err);\n   16          break;\n   17      case DDCL_FILE_NOT_BE_DIR:\n   18:         DDLUA_ERROR(L, \"error: path is not a dir\", err);\n   19          break;\n   20      case DDCL_FILE_BE_DIR:\n   21:         DDLUA_ERROR(L, \"error: path can not be a dir\", err);\n   22          break;\n   23      case DDCL_FILE_PATH_ERR:\n   24:         DDLUA_ERROR(L, \"error: path format error\", err);\n   25          break;\n   26      default:\n   27:         DDLUA_ERROR(L, \"error: file faild\", err);\n   28          break;\n   29      }\n\nC:\\Users\\diandian\\OneDrive\\ddengine\\lddcl\\lcl.h:\n   44  #define DDLUA_PUSHFUNC(L, NAME, F)  lua_pushstring(L, NAME); lua_pushcfunction(L, F); lua_settable(L, -3)\n   45  #define DDLUA_PUSHENUM(L, NAME, M)  lua_pushstring(L, NAME); lua_pushinteger(L, M); lua_settable(L, -3)\n   46: #define DDLUA_ERRCK(L, ERR) do{ if(ERR > 0){DDLUA_ERROR(L, ddcl_err(ERR)); } }while(0)\n   47  \n   48  CLLUA int\n\nC:\\Users\\diandian\\OneDrive\\ddengine\\lddcl\\lfile.c:\n   59      ddcl_FileSearch * fs = lua_touserdata(L, 1);\n   60      if(!fs)\n   61:         DDLUA_ERROR(L, \"invalid userdata pointer\");\n   62      DDLUA_ERRCK(L, ddcl_add_path(fs, luaL_checkstring(L, 2)));\n   63      return 0;\n   ..\n   68      ddcl_FileSearch * fs = lua_touserdata(L, 1);\n   69      if(!fs)\n   70:         DDLUA_ERROR(L, \"invalid userdata pointer\");\n   71      char out[DDCL_MAX_PATH];\n   72      DDLUA_ERRCK(L, ddcl_find_file(fs, luaL_checkstring(L, 2), out));\n\n9 matches across 4 files\n\n\nSearching 7 files for \"DDLUA_ERROR\" (case sensitive)\n\nC:\\Users\\diandian\\OneDrive\\ddengine\\lddcl\\lfile.c:\n   71      ddcl_FileSearch * fs = lua_touserdata(L, 1);\n   72      if(!fs)\n   73:         DDLUA_ERROR(L, \"invalid userdata pointer\");\n   74      char out[DDCL_MAX_PATH];\n   75      ERROR_CHECK(L, ddcl_find_file(fs, luaL_checkstring(L, 2), out));\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 2462,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "lddcl/lfile.c",
+			"settings":
+			{
+				"buffer_size": 2209,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "example/simple-httpd/main.lua",
+			"settings":
+			{
+				"buffer_size": 2748,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ddcl/ddclsocket.c",
+			"settings":
+			{
+				"buffer_size": 25121,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "3rd/cmake/lua-cjson.cmake",
+			"settings":
+			{
+				"buffer_size": 2008,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "3rd/cmake/lua.cmake",
+			"settings":
+			{
+				"buffer_size": 1923,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "cmake/lddcl.cmake",
+			"settings":
+			{
+				"buffer_size": 677,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cmake/ddengine-test.cmake",
+			"settings":
+			{
+				"buffer_size": 458,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cmake/ddcl.cmake",
+			"settings":
+			{
+				"buffer_size": 1215,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "CMakeLists.txt",
+			"settings":
+			{
+				"buffer_size": 531,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 170.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"sftp",
+				"SFTP: Browse Server…"
+			],
+			[
+				"packins",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"mar",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"mark",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"REPLSHE",
+				"SublimeREPL: Shell"
+			],
+			[
+				"REPLSHEL",
+				"SublimeREPL: Shell"
+			],
+			[
+				"rEPL",
+				"SublimeREPL: ABCL"
+			],
+			[
+				"REPLShel",
+				"SublimeREPL: Shell"
+			],
+			[
+				"",
+				"Markdown Preview: Export HTML in Sublime Text"
+			],
+			[
+				"Expo",
+				"Markdown Preview: Export HTML in Sublime Text"
+			],
+			[
+				"\\",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"MarkEx",
+				"Markdown Preview: Export HTML in Sublime Text"
+			],
+			[
+				"REPLshel",
+				"SublimeREPL: Shell"
+			],
+			[
+				"sa",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"MarkdownSaveTO",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"REPLshe",
+				"SublimeREPL: PowerShell"
+			],
+			[
+				"package",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"list pck",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"PackIns",
+				"Package Control: List Packages"
+			],
+			[
+				"M",
+				"MarkdownEditing: Organize References"
+			],
+			[
+				"shel",
+				"SublimeREPL: Shell"
+			],
+			[
+				"REPLLUA",
+				"SublimeREPL: Lua"
+			],
+			[
+				"lua",
+				"SublimeREPL: Lua"
+			],
+			[
+				"shell",
+				"SublimeREPL: Shell"
+			],
+			[
+				"she",
+				"SublimeREPL: Shell"
+			],
+			[
+				"Shell",
+				"SublimeREPL: Shell"
+			],
+			[
+				"Snippet: ",
+				"Snippet: function"
+			],
+			[
+				"REPLsett",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"REPLlua",
+				"SublimeREPL: Lua"
+			],
+			[
+				"Mark",
+				"MarkdownEditing: Change color scheme..."
+			],
+			[
+				"MK",
+				"MarkdownEditing: Delete Reference"
+			],
+			[
+				"PCIN",
+				"Package Control: Install Package"
+			],
+			[
+				"PCRemove",
+				"Package Control: Remove Package"
+			],
+			[
+				"PCIn",
+				"Package Control: Install Package"
+			],
+			[
+				"Pc",
+				"Package Control: Install Package"
+			],
+			[
+				"mk",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"save",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"selectA",
+				"Bookmarks: Select All"
+			],
+			[
+				"Package",
+				"Package Control: List Packages"
+			],
+			[
+				"Packageremove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 412.0
+	},
+	"console":
+	{
+		"height": 240.0,
+		"history":
+		[
+			"show",
+			"pwd",
+			"print(\"ss\")",
+			"help",
+			"dir",
+			"ls",
+			"l"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/ddgam/OneDrive/ddengine"
+	],
+	"file_history":
+	[
+		"/C/Users/diandian/OneDrive/ddengine/lddcl/lcl.h",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/bind/src/lfile.c",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/bind/src/lcl.h",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/ddclsocket.c",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/ddclservice.h",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/ddclservice.c",
+		"/C/Users/diandian/OneDrive/ddengine/test/t_service.c",
+		"/C/Users/diandian/OneDrive/ddengine/example/cmake/simple-httpd.cmake",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/ddcl.c",
+		"/C/Users/diandian/OneDrive/ddengine/example/CMakeLists.txt",
+		"/C/Users/diandian/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/local",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/ddcltimer.c",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/bind/src/lservice.c",
+		"/C/Users/diandian/OneDrive/ddengine/lddcl/lthread.c",
+		"/C/Users/diandian/OneDrive/ddengine/test/main.c",
+		"/C/Users/diandian/OneDrive/ddengine/lddcl/lfile.c",
+		"/C/Users/diandian/OneDrive/ddengine/lddcl/lcl.c",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/ddclerr.h",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/ddclerr.c",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/ddclfile.h",
+		"/C/Users/diandian/OneDrive/ddengine/ddcl/ddclfile.c",
+		"/C/Users/diandian/OneDrive/ddengine/test/t_file.c",
+		"/C/Users/ddgam/OneDrive/Work/ddengine/ddcl/src/ddclservice.c",
+		"/E/work/ruian_mahjong/trunk/tools/GeneateHotupdate/GeneateManifest.py",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/popups/RoundResultPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/ramj/RamjRoomCreateConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/WzmjRoomCreateConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/scmj/ScmjRoomCreateConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzsk/WzskRoomCreateConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/glmj/GlmjRoomCreateConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/views/GameBtnsView.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/WzmjRoomScene.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/managers/GameMgr.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/CreateRoomPop2.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/pymj/PymjRoomCreateConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/config/GameConfig.lua",
+		"/E/work/ruian_mahjong/trunk/tools/GeneateProto/GeneateProto.py",
+		"/E/work/ruian_mahjong/trunk/src/games/pineapple/PineappleRoomCreateConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/LobbyPlayHelpPop2.lua",
+		"/E/work/ruian_mahjong/trunk/src/framework/mvc/PopupWindow.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/glmj/popups/RoundResultPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/LobbyPlayHelpPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/scenes/LobbyScene.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/GameRecordPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/cocos/cocos2d/functions.lua",
+		"/E/work/ruian_mahjong/trunk/src/main.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/popups/ChatPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/config/MusicConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/base/GameMusic.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/WzmjEffectConfig.lua",
+		"/E/work/ruian_mahjong/trunk/tools/GeneateProto/wzmj.proto",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/WzmjRoomController.lua",
+		"/E/work/ruian_mahjong/trunk/run.cmd",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/WzmjChatConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/LobbyPlayerInfoPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/models/UserSelf.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/base/utils/utility.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/config/ChatConfig.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/base/GameSocket.lua",
+		"/E/work/ruian_mahjong/trunk/frameworks/runtime-src/proj.android-studio/build/android-profile/profile-2018-05-16-17-08-09-117.rawproto",
+		"/E/work/ruian_mahjong/trunk/src/app/models/SettingData.lua",
+		"/E/work/ruian_mahjong/trunk/debug.log",
+		"/E/work/ruian_mahjong/trunk/frameworks/runtime-src/Classes/lua-modules/cjson/lua_cjson.c",
+		"/C/Users/ddgam/OneDrive/Work/ddengine/3rd/lua-cjson-2.1.0/CMakeLists.txt",
+		"/E/work/ruian_mahjong/trunk/src/framework/lyui/LYWidget.lua",
+		"/E/work/ruian_mahjong/trunk/src/framework/lyui/LYList.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/scenes/LoginScene.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/lywidget/GameBtnsWidget.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/uiviews/GameBtnsWidget.lua",
+		"/E/work/ruian_mahjong/trunk/src/framework/global.lua",
+		"/E/work/ruian_mahjong/trunk/frameworks/cocos2d-x/tools/bindings-generator/targets/spidermonkey/templates/ctor.c",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/models/WzmjUser.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/ramj/RoomScene.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/ramj/RoomController.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/models/WzmjTableInfo.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/WzmjReplayScene.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/popups/RoomMenuPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/framework/lyui/LYListItemRender.lua",
+		"/E/work/ruian_mahjong/trunk/src/framework/mvc/View.lua",
+		"/E/work/ruian_mahjong/trunk/src/framework/lyui/LYButton.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/InvitePop.lua",
+		"/E/work/ruian_mahjong/trunk/frameworks/runtime-src/proj.ios_mac/ios/LuaEvent.h",
+		"/E/work/ruian_mahjong/tag/tag_release_1.3_20180620/src/games/wzsk/models/WzskTableInfo.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/WzmjReplayController.lua",
+		"/E/work/ruian_mahjong/trunk/frameworks/cocos2d-x/plugin/plugins/weibo/proj.ios/SinaWeibo/SinaWeibo.m",
+		"/E/work/ruian_mahjong/trunk/src/app/base/utils/shaders.lua",
+		"/E/work/ruian_mahjong/trunk/frameworks/cocos2d-x/cocos/scripting/lua-bindings/script/cocos2d/functions.lua",
+		"/E/work/ruian_mahjong/trunk/src/config.lua",
+		"/E/work/ruian_mahjong/trunk/frameworks/cocos2d-x/external/unzip/unzip.cpp",
+		"/E/work/ruian_mahjong/trunk/src/games/scmj/models/ScmjTableInfo.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/glmj/RoomController.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/views/cards/CardUtil.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/glmj/RoomScene.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzmj/models/WzmjUserSelf.lua",
+		"/E/work/ruian_mahjong/trunk/tools/GeneateProto/xzmj.proto",
+		"/E/work/ruian_mahjong/trunk/tools/GeneateHotupdate/GeneateManifest_template.py",
+		"/E/work/ruian_mahjong/trunk/src/games/scmj/ScmjRoomScene.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/base/GameUpdate.lua",
+		"/E/work/ruian_mahjong/trunk/log/uid_50244.log",
+		"/E/work/ruian_mahjong/trunk/src/app/network/HttpModule.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/base/GameString.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/network/NetManager.lua",
+		"/E/work/ruian_mahjong/trunk/src/framework/mvc/SceneManager.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/MyApp.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/scmj/ScmjReplayScene.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/scmj/controllers/ScmjReplayController.lua",
+		"/C/Users/ddgam/OneDrive/Documents/r/leyou.txt",
+		"/E/work/ruian_mahjong/trunk/log/uid_50144.log",
+		"/E/work/ruian_mahjong/trunk/src/app/base/utils/helper.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/scmj/views/cards/CardUtil.lua",
+		"/E/work/ruian_mahjong/trunk/doc/RELEASE_VERSION.md",
+		"/E/work/ruian_mahjong/trunk/doc/RELEASE_VERSION.html",
+		"/E/work/ruian_mahjong/trunk/src/games/ramj/popups/RamjSettingPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/glmj/views/cards/CardUtil.lua",
+		"/E/work/ruian_mahjong/trunk/httpcache/3a796a14a775c8e6df0e6646b1d2dd6d",
+		"/E/work/ruian_mahjong/trunk/frameworks/runtime-src/proj.android-studio/app/assets/src/games/glmj/RoomScene.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/base/GameAnim.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/wzsk/view/PaixingAni.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/config/GameConfig_template.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/AwardPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/LuckyTurnablePop.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/SharePop.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/CreateRoomPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/popups/JoinRoomPop.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/scmj/controllers/ScmjRoomController.lua",
+		"/E/work/ruian_mahjong/trunk/src/games/ramj/ReplayController.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/network/RoomSocket.lua",
+		"/E/work/ruian_mahjong/trunk/src/app/models/TableInfo.lua"
+	],
+	"find":
+	{
+		"height": 44.0
+	},
+	"find_in_files":
+	{
+		"height": 119.0,
+		"where_history":
+		[
+			"C:\\Users\\diandian\\OneDrive\\ddengine\\lddcl",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"DDLUA_ERROR",
+			"DDLUA_ERRCK",
+			"DDLUA_ERROR",
+			"_rsp_socket",
+			"_excute_listen",
+			"_excu",
+			"_ex",
+			"_add_evt_2_poll",
+			"poll",
+			"ddcl_listen",
+			"listen",
+			"_SCMD_READ",
+			"_SCMD_LISTEN",
+			"ddcl_listen",
+			"DDCLTEST_COMPILE_FLAGS",
+			"ddcl_dispatch_time_wait",
+			"ddcl_signal_monitor",
+			"ddcl_dispatch",
+			"ddcl_loop_with_not_worker",
+			"_MS",
+			"sleepms",
+			"printf",
+			"l_find_in_file_search",
+			"l_get_cwd",
+			"ddcl_get_cwd",
+			"ddcl_find_in_file_search",
+			"l_add_in_file_search",
+			"ddcl_add_in_file_search",
+			"l_get_file_size",
+			"ddcl_get_file_size",
+			"l_is_absolute_path",
+			"ddcl_is_absolute_path",
+			"l_file_is_exist",
+			"ddcl_file_is_exist",
+			"l_file_is_exist"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ERROR_CHECK",
+			"COMPILE_FLAGS",
+			"ddcl_start",
+			"l_find_file",
+			"l_cwd",
+			"ddcl_cwd",
+			"ddcl_find_file",
+			"l_add_path",
+			"ddcl_add_path",
+			"l_file_size",
+			"ddcl_file_size",
+			"l_path_absolute",
+			"ddcl_path_absolute",
+			"l_file_exist",
+			"ddcl_file_exist"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ddcl/ddclthread.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3541,
+								3541
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4530.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ddcl/ddclmsg.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 558,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "example/simple-httpd/simple-httpd-main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "ddcl/ddclservice.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1612,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "ddcl/ddclsocket.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59,
+								59
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2462,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										352,
+										363
+									],
+									[
+										589,
+										600
+									],
+									[
+										713,
+										724
+									],
+									[
+										833,
+										844
+									],
+									[
+										959,
+										970
+									],
+									[
+										1065,
+										1076
+									],
+									[
+										1467,
+										1478
+									],
+									[
+										1677,
+										1688
+									],
+									[
+										1908,
+										1919
+									],
+									[
+										2287,
+										2298
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								2290,
+								2290
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"incomplete_sync": null,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1288.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "lddcl/lfile.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2148,
+								2148
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1333.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "example/simple-httpd/main.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2748,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1515,
+								1515
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "ddcl/ddclsocket.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25121,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11821.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "3rd/cmake/lua-cjson.cmake",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								36
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CMake/CMake.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "3rd/cmake/lua.cmake",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1923,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								36
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CMake/CMake.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "cmake/lddcl.cmake",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CMake/CMake.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "cmake/ddengine-test.cmake",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 458,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CMake/CMake.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "cmake/ddcl.cmake",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1215,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2,
+								2
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CMake/CMake.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 531,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CMake/CMake.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 122.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 225.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 156.0
+	},
+	"pinned_build_system": "Packages/User/run.cmd.sublime-build",
+	"project": "ddengine.sublime-project",
+	"replace":
+	{
+		"height": 80.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ddclsocket.h",
+				"ddcl\\ddclsocket.h"
+			],
+			[
+				"ddclmsg",
+				"ddcl\\ddclmsg.h"
+			],
+			[
+				"ddclserh",
+				"ddcl\\ddclservice.h"
+			],
+			[
+				"ddclsoc.c",
+				"ddcl\\ddclsocket.c"
+			],
+			[
+				"ddclsocket.c",
+				"ddcl\\ddclsocket.c"
+			],
+			[
+				"ddclsock.h",
+				"ddcl\\ddclsocket.h"
+			],
+			[
+				"ddclservice.h",
+				"ddcl\\ddclservice.h"
+			],
+			[
+				"ddcl.c",
+				"ddcl\\ddcl.c"
+			],
+			[
+				"ddcltimer",
+				"ddcl\\ddcltimer.c"
+			],
+			[
+				"lddclerr.c",
+				"ddcl\\ddclerr.c"
+			],
+			[
+				"ddclerr.h",
+				"ddcl\\ddclerr.h"
+			],
+			[
+				"lfile.c",
+				"lddcl\\lfile.c"
+			],
+			[
+				"ddclser.c",
+				"ddcl\\src\\ddclservice.c"
+			],
+			[
+				"GenM",
+				"tools\\GeneateHotupdate\\GeneateManifest.py"
+			],
+			[
+				"GenPro",
+				"tools\\GeneateProto\\GeneateProto.py"
+			],
+			[
+				"GameConfig",
+				"src\\app\\config\\GameConfig.lua"
+			],
+			[
+				"pyRoomC",
+				"src\\games\\pymj\\PymjRoomCreateConfig.lua"
+			],
+			[
+				"createRoom2",
+				"src\\app\\popups\\CreateRoomPop2.lua"
+			],
+			[
+				"wzmjROomCrae",
+				"src\\games\\wzmj\\WzmjRoomCreateConfig.lua"
+			],
+			[
+				"scmjROoMCreate",
+				"src\\games\\scmj\\ScmjRoomCreateConfig.lua"
+			],
+			[
+				"wzskROomCrete",
+				"src\\games\\wzsk\\WzskRoomCreateConfig.lua"
+			],
+			[
+				"glRoomCra",
+				"src\\games\\glmj\\GlmjRoomCreateConfig.lua"
+			],
+			[
+				"wzmjROoMCreate",
+				"src\\games\\wzmj\\WzmjRoomCreateConfig.lua"
+			],
+			[
+				"PinRoomCre",
+				"src\\games\\pineapple\\PineappleRoomCreateConfig.lua"
+			],
+			[
+				"PopupWin",
+				"src\\framework\\mvc\\PopupWindow.lua"
+			],
+			[
+				"RamjRoomC",
+				"src\\games\\ramj\\RamjRoomCreateConfig.lua"
+			],
+			[
+				"wzmj/RoundPOp",
+				"src\\games\\wzmj\\popups\\RoundResultPop.lua"
+			],
+			[
+				"Round",
+				"src\\games\\glmj\\popups\\RoundResultPop.lua"
+			],
+			[
+				"LobbySc",
+				"src\\app\\scenes\\LobbyScene.lua"
+			],
+			[
+				"LobbyHelop",
+				"src\\app\\popups\\LobbyPlayHelpPop.lua"
+			],
+			[
+				"GameRecord",
+				"src\\app\\popups\\GameRecordPop.lua"
+			],
+			[
+				"GameCOnfig",
+				"src\\app\\config\\GameConfig.lua"
+			],
+			[
+				"function",
+				"src\\cocos\\cocos2d\\functions.lua"
+			],
+			[
+				"CreateRoom2",
+				"src\\app\\popups\\CreateRoomPop2.lua"
+			],
+			[
+				"GameMgr",
+				"src\\app\\managers\\GameMgr.lua"
+			],
+			[
+				"main.lua",
+				"src\\main.lua"
+			],
+			[
+				"GameMusc",
+				"src\\app\\base\\GameMusic.lua"
+			],
+			[
+				"MusicCon",
+				"src\\app\\config\\MusicConfig.lua"
+			],
+			[
+				"UserSelf",
+				"src\\app\\models\\UserSelf.lua"
+			],
+			[
+				"util",
+				"src\\app\\base\\utils\\utility.lua"
+			],
+			[
+				"lobbyPlayin",
+				"src\\app\\popups\\LobbyPlayerInfoPop.lua"
+			],
+			[
+				"WzmjChat",
+				"src\\games\\wzmj\\WzmjChatConfig.lua"
+			],
+			[
+				"ChatConfi",
+				"src\\app\\config\\ChatConfig.lua"
+			],
+			[
+				"wzmjChatPop",
+				"src\\games\\wzmj\\popups\\ChatPop.lua"
+			],
+			[
+				"1609",
+				"frameworks\\runtime-src\\proj.android-studio\\build\\android-profile\\profile-2018-05-16-17-08-09-117.rawproto"
+			],
+			[
+				"MusicCOn",
+				"src\\app\\config\\MusicConfig.lua"
+			],
+			[
+				"GameMus",
+				"src\\app\\base\\GameMusic.lua"
+			],
+			[
+				"WzmjRoundPop",
+				"src\\games\\wzmj\\popups\\RoundResultPop.lua"
+			],
+			[
+				"wzmjEfe",
+				"src\\games\\wzmj\\WzmjEffectConfig.lua"
+			],
+			[
+				"wzmjScen",
+				"src\\games\\wzmj\\WzmjRoomScene.lua"
+			],
+			[
+				"settingDa",
+				"src\\app\\models\\SettingData.lua"
+			],
+			[
+				"lua-cjson",
+				"frameworks\\runtime-src\\Classes\\lua-modules\\cjson\\lua_cjson.c"
+			],
+			[
+				"GameSock",
+				"src\\app\\base\\GameSocket.lua"
+			],
+			[
+				"loginScen",
+				"src\\app\\scenes\\LoginScene.lua"
+			],
+			[
+				"GameMusic",
+				"src\\app\\base\\GameMusic.lua"
+			],
+			[
+				"WzmjRoomSC",
+				"src\\games\\wzmj\\WzmjRoomScene.lua"
+			],
+			[
+				"wzmjRoomscene",
+				"src\\games\\wzmj\\WzmjRoomScene.lua"
+			],
+			[
+				"wzmjRoomCon",
+				"src\\games\\wzmj\\WzmjRoomController.lua"
+			],
+			[
+				"wzmj.proto",
+				"tools\\GeneateProto\\wzmj.proto"
+			],
+			[
+				"WzmjEf",
+				"src\\games\\wzmj\\WzmjEffectConfig.lua"
+			],
+			[
+				"global.",
+				"src\\framework\\global.lua"
+			],
+			[
+				"CreateRo2",
+				"src\\app\\popups\\CreateRoomPop2.lua"
+			],
+			[
+				"lywid",
+				"src\\framework\\lyui\\LYWidget.lua"
+			],
+			[
+				"ctor",
+				"frameworks\\cocos2d-x\\tools\\bindings-generator\\targets\\spidermonkey\\templates\\ctor.c"
+			],
+			[
+				"InvitePop",
+				"src\\app\\popups\\InvitePop.lua"
+			],
+			[
+				"lybut",
+				"src\\framework\\lyui\\LYButton.lua"
+			],
+			[
+				"LYBU\t",
+				"src\\framework\\lyui\\LYButton.lua"
+			],
+			[
+				"LYWID",
+				"src\\framework\\lyui\\LYWidget.lua"
+			],
+			[
+				"lobby",
+				"src\\app\\popups\\LobbyPlayHelpPop.lua"
+			],
+			[
+				"lobbyPlhelp",
+				"src\\app\\popups\\LobbyPlayHelpPop.lua"
+			],
+			[
+				"LuaEvent.h",
+				"frameworks\\runtime-src\\proj.ios_mac\\ios\\LuaEvent.h"
+			],
+			[
+				"createroom2",
+				"src\\app\\popups\\CreateRoomPop2.lua"
+			],
+			[
+				"pymjRoomCrea",
+				"src\\games\\pymj\\PymjRoomCreateConfig.lua"
+			],
+			[
+				"createRom2",
+				"src\\app\\popups\\CreateRoomPop2.lua"
+			],
+			[
+				"View.lua",
+				"src\\framework\\mvc\\View.lua"
+			],
+			[
+				"config.lua",
+				"src\\config.lua"
+			],
+			[
+				"lyWid",
+				"src\\framework\\lyui\\LYWidget.lua"
+			],
+			[
+				"WzmjRoomSc",
+				"src\\games\\wzmj\\WzmjRoomScene.lua"
+			],
+			[
+				"lyb",
+				"src\\framework\\lyui\\LYButton.lua"
+			],
+			[
+				"wzskRoomC",
+				"src\\games\\wzsk\\WzskRoomCreateConfig.lua"
+			],
+			[
+				"pymjRoomCreate",
+				"src\\games\\pymj\\PymjRoomCreateConfig.lua"
+			],
+			[
+				"wzskRoomCreate",
+				"src\\games\\wzsk\\WzskRoomCreateConfig.lua"
+			],
+			[
+				"Creater2",
+				"src\\app\\popups\\CreateRoomPop2.lua"
+			],
+			[
+				"WzskRoomC",
+				"src\\games\\wzsk\\WzskRoomCreateConfig.lua"
+			],
+			[
+				"wzmjRoomCreate",
+				"src\\games\\wzmj\\WzmjRoomCreateConfig.lua"
+			],
+			[
+				"GameCon",
+				"src\\app\\config\\GameConfig.lua"
+			],
+			[
+				"wzmjRoomCrete",
+				"src\\games\\wzmj\\WzmjRoomCreateConfig.lua"
+			],
+			[
+				"ScmjRoomCreat",
+				"src\\games\\scmj\\ScmjRoomCreateConfig.lua"
+			],
+			[
+				"CreateRom2",
+				"src\\app\\popups\\CreateRoomPop2.lua"
+			],
+			[
+				"scmjRoomC",
+				"src\\games\\scmj\\ScmjRoomCreateConfig.lua"
+			],
+			[
+				"CreateRoompop2",
+				"src\\app\\popups\\CreateRoomPop2.lua"
+			],
+			[
+				"WzmjReplCon",
+				"src\\games\\wzmj\\WzmjReplayController.lua"
+			],
+			[
+				"scmjTable",
+				"src\\games\\scmj\\models\\ScmjTableInfo.lua"
+			],
+			[
+				"wzmj/RoomMenu",
+				"src\\games\\wzmj\\popups\\RoomMenuPop.lua"
+			],
+			[
+				"wzmjROomCrete",
+				"src\\games\\wzmj\\WzmjRoomCreateConfig.lua"
+			],
+			[
+				"WzmjRooMCreate",
+				"src\\games\\wzmj\\WzmjRoomCreateConfig.lua"
+			],
+			[
+				"wzmj/ROund",
+				"src\\games\\wzmj\\popups\\RoundResultPop.lua"
+			],
+			[
+				"wzmj/WzmjRep",
+				"src\\games\\wzmj\\WzmjReplayScene.lua"
+			],
+			[
+				"wzmj/Cardut",
+				"src\\games\\wzmj\\views\\cards\\CardUtil.lua"
+			],
+			[
+				"wzmj/Round",
+				"src\\games\\wzmj\\popups\\RoundResultPop.lua"
+			],
+			[
+				"wzmj/RoundRE",
+				"src\\games\\wzmj\\popups\\RoundResultPop.lua"
+			],
+			[
+				"musicCon",
+				"src\\app\\config\\MusicConfig.lua"
+			],
+			[
+				"GameMul",
+				"src\\app\\base\\GameMusic.lua"
+			],
+			[
+				"ramj/RoomScene",
+				"src\\games\\ramj\\RoomScene.lua"
+			],
+			[
+				"ramjRoomContro",
+				"src\\games\\ramj\\RoomController.lua"
+			],
+			[
+				"WzmjUser",
+				"src\\games\\wzmj\\models\\WzmjUser.lua"
+			],
+			[
+				"wzmjReplCOn",
+				"src\\games\\wzmj\\WzmjReplayController.lua"
+			],
+			[
+				"wzmjRepl",
+				"src\\games\\wzmj\\WzmjReplayScene.lua"
+			],
+			[
+				"xzmj.pro",
+				"tools\\GeneateProto\\xzmj.proto"
+			],
+			[
+				"gamecon",
+				"src\\app\\config\\GameConfig.lua"
+			],
+			[
+				"wzmj/CarUtl",
+				"src\\games\\wzmj\\views\\cards\\CardUtil.lua"
+			],
+			[
+				"gameConfig",
+				"src\\app\\config\\GameConfig.lua"
+			],
+			[
+				"netmana",
+				"src\\app\\network\\NetManager.lua"
+			],
+			[
+				"update",
+				"src\\app\\base\\GameUpdate.lua"
+			],
+			[
+				"wzmjRound",
+				"src\\games\\wzmj\\popups\\RoundResultPop.lua"
+			],
+			[
+				"WzmjUse",
+				"src\\games\\wzmj\\models\\WzmjUser.lua"
+			],
+			[
+				"Netma",
+				"src\\app\\network\\NetManager.lua"
+			],
+			[
+				"SceneMana",
+				"src\\framework\\mvc\\SceneManager.lua"
+			],
+			[
+				"popupWin",
+				"src\\framework\\mvc\\PopupWindow.lua"
+			],
+			[
+				"PopupWind",
+				"src\\framework\\mvc\\PopupWindow.lua"
+			],
+			[
+				"RoundREsultPop",
+				"src\\games\\glmj\\popups\\RoundResultPop.lua"
+			],
+			[
+				"RoomScene",
+				"src\\games\\ramj\\RoomScene.lua"
+			],
+			[
+				"ScmjReplCOn",
+				"src\\games\\scmj\\controllers\\ScmjReplayController.lua"
+			],
+			[
+				"ScmjRepl",
+				"src\\games\\scmj\\ScmjReplayScene.lua"
+			],
+			[
+				"WzmjuserSelf",
+				"src\\games\\wzmj\\models\\WzmjUserSelf.lua"
+			],
+			[
+				"Wzmjuser",
+				"src\\games\\wzmj\\models\\WzmjUser.lua"
+			],
+			[
+				"help",
+				"src\\app\\base\\utils\\helper.lua"
+			],
+			[
+				"scmj/ScmjReplayController",
+				"src\\games\\scmj\\controllers\\ScmjReplayController.lua"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 314.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
