@@ -17,8 +17,15 @@ endif()
 target_link_libraries(lddcl PUBLIC ddcl)
 
 if(WIN32)
+else()
     set(DDCLLUA_COMPILE_FLAGS -std=gnu99)
     set_target_properties(lddcl PROPERTIES COMPILE_FLAGS ${DDCLLUA_COMPILE_FLAGS})
+endif()
+
+if(APPLE)
+    if(${BUILD_SHARED_LIBS})
+        set_target_properties(lddcl PROPERTIES SUFFIX ".so")
+    endif()
 endif()
 
 set_target_properties(lddcl PROPERTIES PREFIX "")

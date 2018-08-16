@@ -27,7 +27,7 @@ lservice_yield_for_session(lua_State * L, Context * ctx, ddcl_Session session){
     lua_pushthread(L);
     lua_rawset(L, -3);
     lua_pop(L, 1);
-    lua_yield(L, 0);
+    return lua_yield(L, 0);
 }
 
 static void
@@ -125,8 +125,7 @@ _excute_resp_msg(ddcl_Msg * msg){
     Context * ctx = (Context *)msg->ud;
     lua_State * L = ctx->L;
     if (!msg->session){
-        ddcl_log(ctx->svr, "resp msg but session == 0");
-        return 0;
+        return luaL_error(L, "resp msg but session == 0");
     }
 
     lua_rawgetp(L, LUA_REGISTRYINDEX, &ctx->session_map);
@@ -141,8 +140,7 @@ _excute_resp_msg(ddcl_Msg * msg){
             break;
         default:
             lua_pop(L, 2);
-            ddcl_log(ctx->svr, "unknow session[%d] for resp msg", msg->session);
-            return 0;
+            return luaL_error(L, "unknow session[%d] for resp msg", msg->session);
     }
 
     lua_State * nL = lua_tothread(L, -1);
@@ -152,8 +150,7 @@ _excute_resp_msg(ddcl_Msg * msg){
         lua_pushnil(L);
         lua_rawset(L, -3);
         luaL_traceback(L, nL, msg->data, 0);
-        ddcl_log(ctx->svr, "call error:%s", lua_tostring(L, -1));
-        return 0;
+        return luaL_error(L, "call faild: %s", lua_tostring(L, -1));
     }
     lua_settop(nL, 0);
     lua_pushlstring(nL, msg->data ? msg->data : "", msg->sz);
@@ -200,6 +197,32 @@ l_msg_cbfn(ddcl_Msg * msg){
     if(lua_gettop(L) != top){
         ddcl_log(ctx->svr, "rdiff %d", lua_gettop(L) - top);
     }
+    return 0;
+}
+
+static void
+l_exit_service_cb(ddcl_Service h, void * ud){
+    Context * ctx = (Context *)ud;
+    lua_State * L = ctx->L;
+    lua_rawgetp(L, LUA_REGISTRYINDEX, &ctx->co_map);
+    lua_pushnil(L);
+    while (lua_next(L, -2) != 0) {
+        lua_rawgeti(L, -1, 1);
+        ddcl_Service from = (ddcl_Service)lua_tointeger(L, -1);
+        lua_pop(L, 1);
+
+        lua_rawgeti(L, -1, 2);
+        ddcl_Session session = lua_tointeger(L, -1);
+        lua_pop(L, 1);
+        const char * err = "service is closed";
+        ddcl_send_b(from, ctx->svr, DDCL_PTYPE_RESP, 
+            DDCL_CMD_ERROR, session, (void *)err, strlen(err) + 1);
+
+        lua_pop(L, 1);
+     }
+
+    lua_close(L);
+    ddcl_free(ctx);
 }
 
 static int
@@ -211,6 +234,7 @@ l_new_service (lua_State * L){
 
     Context * new_ctx = ddcl_malloc(sizeof(Context));
     memset(new_ctx, 0, sizeof(Context));
+    new_ctx->is_worker = 1;
     lua_State * nL = luaL_newstate();
     luaL_openlibs(nL);
     new_ctx->L = nL;
@@ -218,18 +242,38 @@ l_new_service (lua_State * L){
     lua_pushlightuserdata(nL, new_ctx);
     lua_rawset(nL, LUA_REGISTRYINDEX);
 
+    lua_getglobal(L, "package");
+    lua_pushstring(L, "path");
+    lua_rawget(L, -2);
+    const char * path = lua_tostring(L, -1);
+    lua_pushstring(L, "cpath");
+    lua_rawget(L, -3);
+    const char * cpath = lua_tostring(L, -1);
+    lua_pop(L, 3);
+
+
+    lua_getglobal(nL, "package");
+    lua_pushstring(nL, "path");
+    lua_pushstring(nL, path);
+    lua_rawset(nL, -3);
+
+    lua_pushstring(nL, "cpath");
+    lua_pushstring(nL, cpath);
+    lua_rawset(nL, -3);
+    lua_pop(nL, 1);
+
     if(luaL_loadstring(nL, script) || !lua_pushstring(nL, param) || lua_pcall(nL, 1, 0, 0)){
         ddcl_free(ctx);
         size_t errsz;
         const char * errstr = lua_tolstring(nL, -1, &errsz);
-        char * buf = ddcl_malloc(errsz + 1);
-        memcpy(buf, errstr, errsz);
-        buf[errsz] = 0;
+        luaL_traceback(L, nL, errstr, 0);
+        const char * tb_errstr = lua_tostring(L, -1);
         lua_close(nL);
-        return luaL_error(L, "load lua error:%s", buf);
+        return luaL_error(L, "load lua error:%s", tb_errstr);
     }
 
     ddcl_Service svr = ddcl_new_service(l_msg_cbfn, new_ctx);
+    ddcl_exit_service_cb(svr, l_exit_service_cb);
     new_ctx->svr = svr;
 
     lua_newtable(nL);
@@ -238,7 +282,7 @@ l_new_service (lua_State * L){
     lua_newtable(nL);
     lua_rawsetp(nL, LUA_REGISTRYINDEX, &new_ctx->co_map);
 
-    ddcl_send_b(svr, 0, DDCL_PTYPE_SEND, DDCL_CMD_LUA_START, 0, NULL, 0);
+    ddcl_send_b(svr, ctx->svr, DDCL_PTYPE_SEND, DDCL_CMD_LUA_START, 0, NULL, 0);
 
     lua_pushinteger(L, svr);
     return 1;
@@ -261,7 +305,20 @@ l_start (lua_State * L){
     Context * ctx = lua_touserdata(L, -1);
     lua_pushvalue(L, 1);
     lua_rawsetp(L, LUA_REGISTRYINDEX, &ctx->startfn);
+    return 0;
+}
 
+static int
+l_exit (lua_State * L){
+    FIND_CTX;
+    ddcl_Service svr = ctx->svr;
+    if(lua_gettop(L) > 0){
+        svr = (ddcl_Service)luaL_checkinteger(L, 1);
+    }
+    ddcl_exit_service(svr);
+    if(ctx->svr == svr){
+        lua_yield(L, 0);
+    }
     return 0;
 }
 
@@ -295,8 +352,10 @@ l_start_non_worker(lua_State * L){
     luaL_checktype(L, 1, LUA_TFUNCTION);
 
     Context * ctx = ddcl_malloc(sizeof(Context));
+    ctx->is_worker = 0;
     memset(ctx, 0, sizeof(Context));
     ddcl_Service svr = ddcl_new_service_not_worker(l_msg_cbfn, ctx);
+    ddcl_exit_service_cb(svr, l_exit_service_cb);
     ctx->L = L;
     ctx->svr = svr;
 
@@ -348,8 +407,11 @@ l_call (lua_State * L){
     FIND_CTX;
 
     ddcl_Session session;
-    ddcl_call_b(to, ctx->svr, DDCL_PTYPE_SEND,
-            DDCL_CMD_TEXT, &session, (void *)str, sz);
+    int ret = ddcl_call_b(to, ctx->svr, DDCL_PTYPE_SEND,
+                DDCL_CMD_TEXT, &session, (void *)str, sz);
+    if(ret){
+        return luaL_error(L, ddcl_err(ret));
+    }
     return lservice_yield_for_session(L, ctx, session);
 }
 
@@ -368,7 +430,7 @@ l_resp (lua_State * L){
         return 0;
     }
     lua_rawgeti(L, -1, 1);
-    ddcl_Service from = lua_tointeger(L, -1);
+    ddcl_Service from = (ddcl_Service)lua_tointeger(L, -1);
     lua_rawgeti(L, -2, 2);
     ddcl_Session session = lua_tointeger(L, -1);
     lua_pop(L, 3);
@@ -389,7 +451,7 @@ l_resp (lua_State * L){
 
 static int
 l_timeout(lua_State * L){
-    lua_Integer ms = luaL_checkinteger(L, 1);
+    dduint32 ms = (dduint32)luaL_checkinteger(L, 1);
     luaL_checktype(L, 2, LUA_TFUNCTION);
 
     FIND_CTX;
@@ -453,7 +515,7 @@ static int
 l_co_sleep (lua_State * L){
     FIND_CTX;
 
-    lua_Integer ms = luaL_checkinteger(L, 1);
+    dduint32 ms = (dduint32)luaL_checkinteger(L, 1);
 
     ddcl_Session session;
     ddcl_timeout(ctx->svr, &session, ms);
@@ -521,6 +583,7 @@ openlib_service (lua_State * L){
 
     DDLUA_PUSHFUNC(L, "new_service", l_new_service);
     DDLUA_PUSHFUNC(L, "start", l_start);
+    DDLUA_PUSHFUNC(L, "exit", l_exit);
     DDLUA_PUSHFUNC(L, "callback", l_callback);
     DDLUA_PUSHFUNC(L, "start_non_worker", l_start_non_worker);
     DDLUA_PUSHFUNC(L, "send", l_send);

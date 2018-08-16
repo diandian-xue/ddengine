@@ -1,9 +1,10 @@
-﻿#define DDCL_CORE
+#define DDCL_CORE
 
 #include "ddclsocket.h"
 #include "ddclthread.h"
 #include "ddclmalloc.h"
 #include "ddclerr.h"
+#include "ddcllog.h"
 
 #ifdef DDSYS_WIN
 
@@ -422,6 +423,7 @@ _execute_event_in_fd_connecting(SocketThread * st, Socket * s, int evt){
         {
             s->status = _SS_CONNECTED;
             _add_evt_2_poll(st->poll, s, DDSOCKETPOLL_ERROR);
+            _del_evt_in_poll(st->poll, s, DDSOCKETPOLL_WRITE);
             _rsp_socket(st, s, s->source, s->session, DDCL_SOCKET_READ);
         }
     }
@@ -503,7 +505,7 @@ _execute_event_on_fd_connected(SocketThread * st, Socket * s, int evt) {
                 rbuf = s->crbuf;
             else
                 rbuf = ddcl_malloc(rlen);
-            rsz = recv(s->fd, rbuf, rlen, 0);
+            rsz = recv(s->fd, rbuf, (int)rlen, 0);
             if(rsz > 0){
                 _push_cache_buff(s, rbuf, rsz, rlen <= DEFAULT_RECV_SIZE);
                 rb->sz = rsz;
@@ -539,7 +541,7 @@ _execute_event_on_fd_connected(SocketThread * st, Socket * s, int evt) {
         size_t slen = 0;
         int n;
         while(sb){
-            n = send(s->fd, sb->buf + slen, sb->sz - slen, 0);
+            n = send(s->fd, sb->buf + slen, (int)(sb->sz - slen), 0);
             if(n <= 0){
                 sb->buf += slen;
                 sb->sz -= slen;
@@ -667,7 +669,7 @@ _execute_event(SocketThread * st, ddcl_Socket h, int evt){
 
 static void
 _timeout_wait_poll(ddcl_Msg * msg){
-    ddcl_timeout(msg->self, NULL, 10);
+    ddcl_timeout(msg->self, NULL, 5);
     SocketThread * st = msg->ud;
     ddcl_SocketEvent evts[MAX_POLL_WAIT] = { 0 };
     ddcl_SocketEvent * e;
@@ -734,7 +736,7 @@ _excute_read_cmd(SocketCmd * cmd, ddcl_Service source, ddcl_Session session){
         else
             rbuf = ddcl_malloc(rlen);
 
-        int rsz = recv(s->fd, rbuf, rlen, 0);
+        int rsz = recv(s->fd, rbuf, (int)rlen, 0);
         if(rsz > 0){
             _push_cache_buff(s, rbuf, rsz, rlen <= DEFAULT_RECV_SIZE);
             if(rlen > DEFAULT_RECV_SIZE)
@@ -764,7 +766,7 @@ _excute_send_cmd(SocketCmd * cmd, ddcl_Service source, ddcl_Session session){
     if(_send_buff_is_empty(s)){
         int n;
         for(;;){
-            n = send(s->fd, buf + slen, sz - slen, 0);
+            n = send(s->fd, buf + slen, (int)(sz - slen), 0);
             if(n <= 0)
                 break;
             slen += n;
@@ -785,9 +787,6 @@ _excute_close_cmd(SocketCmd * cmd, ddcl_Service source, ddcl_Session session){
     Socket * s = _find_socket(cmd->h);
     if(s && s->fd == cmd->fd){
         _del_fd(s);
-    }else
-    {
-        printf("close error %p, %d %d\n", s, s->fd, cmd->fd);
     }
 }
 
@@ -1078,7 +1077,7 @@ ddcl_read_socket(ddcl_Socket fd, ddcl_Service from, size_t sz, ddcl_Session * se
 }
 
 DDCLAPI int
-ddcl_send_socket(ddcl_Socket fd, ddcl_Service from, void * buf, size_t sz){
+ddcl_send_socket(ddcl_Socket fd, ddcl_Service from, const void * buf, size_t sz){
     Socket * s = _find_socket(fd);
     if(!s)
         return DDCLSOCKET_INVALID_HANDLE;

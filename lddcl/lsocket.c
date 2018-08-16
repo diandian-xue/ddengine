@@ -29,7 +29,7 @@ static int
 l_connect_socket (lua_State * L){
     FIND_CTX;
     const char * host = luaL_checkstring(L, 1);
-    lua_Integer port = luaL_checkinteger(L, 2);
+    dduint16 port = (dduint16)luaL_checkinteger(L, 2);
     ddcl_Session session;
     int err = ddcl_new_session(ctx->svr, &session);
     if(err){
@@ -48,8 +48,8 @@ l_listen_socket (lua_State * L){
     FIND_CTX;
 
     const char * host = luaL_checkstring(L, 1);
-    lua_Integer port = luaL_checkinteger(L, 2);
-    lua_Integer backlog = luaL_checkinteger(L, 3);
+    dduint16 port = (dduint16)luaL_checkinteger(L, 2);
+    int backlog = (int)luaL_checkinteger(L, 3);
 
     ddcl_Session session;
     int err = ddcl_new_session(ctx->svr, &session);
@@ -68,7 +68,7 @@ l_listen_socket (lua_State * L){
 static int
 l_accept_socket (lua_State * L){
     FIND_CTX;
-    ddcl_Socket fd = luaL_checkinteger(L, 1);
+    ddcl_Socket fd = (ddcl_Socket)luaL_checkinteger(L, 1);
 
     ddcl_Session session;
     int err = ddcl_accept_socket(fd, ctx->svr, &session);
@@ -82,7 +82,7 @@ static int
 l_read_socket (lua_State * L){
     FIND_CTX;
 
-    ddcl_Socket fd = luaL_checkinteger(L, 1);
+    ddcl_Socket fd = (ddcl_Socket)luaL_checkinteger(L, 1);
     size_t sz = luaL_checkinteger(L, 2);
 
     ddcl_Session session;
@@ -95,7 +95,7 @@ l_read_socket (lua_State * L){
 
 static int
 l_send_socket (lua_State * L){
-    ddcl_Socket fd = luaL_checkinteger(L, 1);
+    ddcl_Socket fd = (ddcl_Socket)luaL_checkinteger(L, 1);
     size_t sz;
     const char * data = luaL_checklstring(L, 2, &sz);
     int err = ddcl_send_socket(fd, 0, data, sz);
@@ -107,7 +107,7 @@ l_send_socket (lua_State * L){
 
 static int
 l_close_socket (lua_State * L){
-    ddcl_Socket fd = luaL_checkinteger(L, 1);
+    ddcl_Socket fd = (ddcl_Socket)luaL_checkinteger(L, 1);
     int err = ddcl_close_socket(fd, 0);
     if(err){
         return luaL_error(L, ddcl_err(err));
@@ -124,7 +124,7 @@ l_getall_socket_count (lua_State * L){
 static int
 l_forward_socket (lua_State * L){
     FIND_CTX;
-    ddcl_Socket fd = luaL_checkinteger(L, 1);
+    ddcl_Socket fd = (ddcl_Socket)luaL_checkinteger(L, 1);
     int err = ddcl_forward_socket(fd, ctx->svr);
     if(err){
         return luaL_error(L, ddcl_err(err));

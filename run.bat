@@ -1,6 +1,6 @@
 @echo off
 
-cd /d %DDENGINE_PROJ_WIN64%
+cd /d %DDENGINE_PROJ%
 
 :: bin\\Debug\\simple-httpd.exe
 :: bin\\Debug\\ddengine_test.exe

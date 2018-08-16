@@ -15,7 +15,6 @@ static const char * _ERRER_STRS[] = {
 
     "Unknow socket handle",
 
-
     "unknow error", // DDCL_ERR_END
 };
 

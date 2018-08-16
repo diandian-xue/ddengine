@@ -9,9 +9,9 @@
 
 typedef struct tag_Entry{
     char * k;
-    dduint32 ksz;
+    size_t ksz;
     void * data;
-    dduint32 datasz;
+    size_t datasz;
     dduint32 hash;
     struct tag_Entry * next;
     struct tag_Entry * iterLast;
@@ -36,9 +36,9 @@ struct tag_ddcl_Map{
 
 
 static dduint32
-_hashfunc_AP(const char * dat, dduint32 size){
+_hashfunc_AP(const char * dat, size_t size){
      dduint32 hash = 0xAAAAAAAA;
-    for(dduint32 i = 0; i < size; i++){
+    for(size_t i = 0; i < size; i++){
         if ((i & 1) == 0)
             hash ^= ((hash << 7) ^ dat[i] * (hash >> 3));
         else
@@ -48,10 +48,10 @@ _hashfunc_AP(const char * dat, dduint32 size){
 }
 
 static dduint32
-_hashfunc_RS(const char * dat, dduint32 size){
+_hashfunc_RS(const char * dat, size_t size){
     int b = 378551; int a = 63689;
     dduint32 hash = 0;
-    for(dduint32 i = 0; i < size; i++){
+    for(size_t i = 0; i < size; i++){
         hash = hash * a + dat[i];
         a = a * b;
     }
@@ -59,21 +59,21 @@ _hashfunc_RS(const char * dat, dduint32 size){
 }
 
 static dduint32
-_hashfunc_JS(const char * dat, dduint32 size){
+_hashfunc_JS(const char * dat, size_t size){
      dduint32 hash = 1315423911;
-    for(dduint32 i = 0; i < size; i++)
+    for(size_t i = 0; i < size; i++)
         hash ^= ((hash << 5) + dat[i] + (hash >> 2));
     return hash;
 }
 
 static dduint32
-_hashfunc_PJW(const char * dat, dduint32 size){
+_hashfunc_PJW(const char * dat, size_t size){
     dduint32 BitsInUnsignedInt = (dduint32)(4 * 8);
     dduint32 ThreeQuarters     = (dduint32)((BitsInUnsignedInt  * 3) / 4);
     dduint32 OneEighth         = (dduint32)(BitsInUnsignedInt / 8);
     dduint32 HighBits          = (dduint32)(0xFFFFFFFF) << (BitsInUnsignedInt - OneEighth);
      dduint32 hash = 0;  dduint32 test = 0;
-    for(dduint32 i = 0; i < size; i++){
+    for(size_t i = 0; i < size; i++){
         hash = (hash << OneEighth) + dat[i];
         if((test = hash & HighBits)  != 0)
             hash = (( hash ^ (test >> ThreeQuarters)) & (~HighBits));
@@ -82,9 +82,9 @@ _hashfunc_PJW(const char * dat, dduint32 size){
 }
 
 static dduint32
-_hashfunc_ELF(const char * dat, dduint32 size){
+_hashfunc_ELF(const char * dat, size_t size){
      dduint32 hash = 0;  dduint32 x = 0;
-    for(dduint32 i = 0; i < size; i++){
+    for(size_t i = 0; i < size; i++){
         hash = (hash << 4) + dat[i];
         if((x = hash & 0xF0000000L) != 0)
             hash ^= (x >> 24);
@@ -94,7 +94,7 @@ _hashfunc_ELF(const char * dat, dduint32 size){
 }
 
 static dduint32
-_hashfunc_BKDR(const char * dat, dduint32 size){
+_hashfunc_BKDR(const char * dat, size_t size){
      dduint32 hash = 0;  dduint32 seed = 131; // 31 131 1313 13131 131313 etc..
     for(dduint32 i = 0; i < size; i++)
         hash = (hash * seed) + dat[i];
@@ -102,25 +102,25 @@ _hashfunc_BKDR(const char * dat, dduint32 size){
 }
 
 static dduint32
-_hashfunc_SDBM(const char * dat, dduint32 size){
+_hashfunc_SDBM(const char * dat, size_t size){
      dduint32 hash = 0;
-    for(dduint32 i = 0; i < size; i++)
+    for(size_t i = 0; i < size; i++)
         hash = dat[i] + (hash << 6) + (hash << 16) - hash;
     return hash;
 }
 
 static dduint32
-_hashfunc_DJB(const char * dat, dduint32 size){
+_hashfunc_DJB(const char * dat, size_t size){
      dduint32 hash = 5381;
-    for(dduint32 i = 0; i < size; i++)
+    for(size_t i = 0; i < size; i++)
         hash = ((hash << 5) + hash) + dat[i];
     return hash;
 }
 
 static dduint32
-_hashfunc_DEK(const char * dat, dduint32 size){
-     dduint32 hash = size;
-    for(dduint32 i = 0; i < size; i++)
+_hashfunc_DEK(const char * dat, size_t size){
+     dduint32 hash = (dduint32)size;
+    for(size_t i = 0; i < size; i++)
         hash = ((hash << 5) ^ (hash >> 27)) ^ dat[i];
     return hash;
 }
@@ -138,19 +138,19 @@ static ddcl_MapKeyHashFn g_hash_ways[] = {
 };
 
 static int
-_default_cmp_fn(void * k1, dduint32 sz1, void * k2, dduint32 sz2){
+_default_cmp_fn(void * k1, size_t sz1, void * k2, size_t sz2){
     if(sz1 != sz2)
         return 0;
     return strncmp(k1, k2, sz1) == 0;
 }
 
 DDCLAPI dduint32
-ddcl_hash(const char * k, dduint32 sz, int type){
+ddcl_hash(const char * k, size_t sz, int type){
     return g_hash_ways[type](k, sz);
 }
 
 DDCLAPI dduint32
-ddcl_map_hash(const char * k, dduint32 sz){
+ddcl_map_hash(const char * k, size_t sz){
     return g_hash_ways[DDHASH_BKDR](k, sz);
 }
 
@@ -174,10 +174,10 @@ ddcl_new_map(ddcl_MapKeyCmpFn com_fn, ddcl_MapKeyHashFn hash_fn){
 DDCLAPI void
 ddcl_free_map(ddcl_Map * map){
     ddcl_begin_map(map);
-    char * k;
-    dduint32 ksz;
-    dduint32 * data;
-    dduint32 datasz = 0;
+    void * k;
+    size_t ksz;
+    void * data;
+    size_t datasz = 0;
     while(ddcl_next_map(map, &k, &ksz, &data, &datasz)){
         if(datasz)
             free(data);

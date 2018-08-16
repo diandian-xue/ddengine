@@ -1,2 +1,3 @@
-cd /d %DDENGINE_PROJ_WIN64%
+cd /d %DDENGINE_PROJ%
 MSBuild ddengine.sln
+

@@ -6,6 +6,7 @@
 #include "ddclmalloc.h"
 #include "ddclmap.h"
 #include "ddclerr.h"
+#include "ddcllog.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -37,6 +38,7 @@ typedef struct tag_Service{
     void * ud;
     dduint32 session_idx;
     ddcl_MsgCB cb;
+    ddcl_ExitServiceCB exit_cb;
 }Service;
 
 typedef struct tag_GlobalQueue{
@@ -87,6 +89,31 @@ _pop_global_queue (){
     return svr;
 }
 
+static ddcl_Service
+_register_handle (Service ** s){
+    ddcl_Service h;
+    ddcl_wlock_rw(&(_H.lock));
+    h = ddcl_register_in_storage(_H.hs, (void **)s);
+    ddcl_wunlock_rw(&(_H.lock));
+    return h;
+}
+
+static Service *
+_grep_handle (ddcl_Service h){
+    Service * s;
+    ddcl_rlock_rw(&(_H.lock));
+    s = ddcl_find_in_storage(_H.hs, h);
+    ddcl_runlock_rw(&(_H.lock));
+    return s;
+}
+
+static void
+_delete_handle (ddcl_Service h){
+    ddcl_wlock_rw(&(_H.lock));
+    ddcl_del_in_storage(_H.hs, h);
+    ddcl_wunlock_rw(&(_H.lock));
+}
+
 static Service *
 _new_service (Service * svr, int global) {
     ddcl_init_spin(&(svr->lock));
@@ -115,7 +142,7 @@ _expand_service_queue (Service * svr, dduint32 new_cap){
 
 static void
 _push_service_queue (Service * svr, ddcl_Service self, int ptype, 
-    int cmd, ddcl_Session session, char * data, size_t sz, int free){
+    int cmd, ddcl_Session session, const char * data, size_t sz, int free){
 
     ddcl_lock_spin(&(svr->lock));
     svr->queue_count++;
@@ -172,18 +199,20 @@ _pop_service_queue (Service * svr, ddcl_Msg * msg, int max) {
 
 static void
 _free_service_queue (Service * svr){
+    ddcl_log(svr->handle, "exit svr %ld", svr->handle);
     ddcl_destroy_spin(&(svr->lock));
     ddcl_free(svr->queue);
-    svr->tail = svr->head = 0;
-    svr->exit = 1;
-    ddcl_free(svr);
+    if(svr->exit_cb){
+        svr->exit_cb(svr->handle, svr->ud);
+    }
+    _delete_handle(svr->handle);
 }
 
 void
 _dispatch_msg (Service * svr, ddcl_Msg * msg){
     svr->cb(msg);
     if(msg->data && msg->free)
-        ddcl_free(msg->data);
+        ddcl_free((void *)msg->data);
 }
 
 int
@@ -197,6 +226,9 @@ _dispatch_global_queue (){
         return 0;
     }
     for (int i = 0; i < ret; i ++){
+        if (svr->exit) {
+            break;
+        }
         _dispatch_msg(svr, &(msg[i]));
     }
 
@@ -225,24 +257,6 @@ _new_session (Service * svr){
         return 1;
     }
     return id;
-}
-
-static ddcl_Service
-_register_handle (Service ** s){
-    ddcl_Service h;
-    ddcl_wlock_rw(&(_H.lock));
-    h = ddcl_register_in_storage(_H.hs, (void **)s);
-    ddcl_wunlock_rw(&(_H.lock));
-    return h;
-}
-
-static Service *
-_grep_handle (ddcl_Service h){
-    Service * s;
-    ddcl_rlock_rw(&(_H.lock));
-    s = ddcl_find_in_storage(_H.hs, h);
-    ddcl_runlock_rw(&(_H.lock));
-    return s;
 }
 
 static void *
@@ -281,13 +295,25 @@ DDCLAPI int
 ddcl_exit_service (ddcl_Service h){
     Service * svr = _grep_handle(h);
     if (svr){
+        ddcl_lock_spin(&(svr->lock));
         svr->exit = 1;
+        ddcl_unlock_spin(&(svr->lock));
         return 0;
     }else{
         return DDCL_SERVICE_UNKNOW_HANDLE;
     }
 }
 
+DDCLAPI int
+ddcl_exit_service_cb(ddcl_Service h, ddcl_ExitServiceCB cb){
+    Service * svr = _grep_handle(h);
+    if (svr){
+        svr->exit_cb = cb;
+        return 0;
+    }else{
+        return DDCL_SERVICE_UNKNOW_HANDLE;
+    }
+}
 
 DDCLAPI ddcl_Service
 ddcl_new_service (ddcl_MsgCB cb, void * ud){
@@ -313,7 +339,7 @@ ddcl_new_service_not_worker (ddcl_MsgCB cb, void * ud) {
 
 DDCLAPI int
 ddcl_send (ddcl_Service to, ddcl_Service self, int ptype,
-    int cmd, ddcl_Session session, void * data, size_t sz){
+    int cmd, ddcl_Session session, const void * data, size_t sz){
     Service * tos = _grep_handle(to);
     if(!tos){
         return DDCL_SERVICE_UNKNOW_HANDLE;
@@ -324,7 +350,7 @@ ddcl_send (ddcl_Service to, ddcl_Service self, int ptype,
 
 DDCLAPI int
 ddcl_send_b (ddcl_Service to, ddcl_Service self, int ptype, 
-    int cmd, ddcl_Session session, void * data, size_t sz){
+    int cmd, ddcl_Session session, const void * data, size_t sz){
     Service * tos = _grep_handle(to);
     if(!tos){
         return DDCL_SERVICE_UNKNOW_HANDLE;
@@ -340,7 +366,7 @@ ddcl_send_b (ddcl_Service to, ddcl_Service self, int ptype,
 
 DDCLAPI int
 ddcl_send_raw (ddcl_Service to, ddcl_Service self, int ptype, 
-    int cmd, ddcl_Session session, void * data, size_t sz){
+    int cmd, ddcl_Session session, const void * data, size_t sz){
     Service * tos = _grep_handle(to);
     if(!tos){
         return DDCL_SERVICE_UNKNOW_HANDLE;
@@ -351,9 +377,9 @@ ddcl_send_raw (ddcl_Service to, ddcl_Service self, int ptype,
 
 DDCLAPI int
 ddcl_call (ddcl_Service to, ddcl_Service self, int ptype,
-    int cmd, ddcl_Session * session, void * data, size_t sz){
+    int cmd, ddcl_Session * session, const void * data, size_t sz){
     Service * tos = _grep_handle(to); Service * selfs = _grep_handle(self);
-	if (!tos || !selfs) {
+    if (!tos || !selfs) {
         return DDCL_SERVICE_UNKNOW_HANDLE;
     }
     *session = _new_session (selfs);
@@ -363,9 +389,9 @@ ddcl_call (ddcl_Service to, ddcl_Service self, int ptype,
 
 DDCLAPI int
 ddcl_call_b (ddcl_Service to, ddcl_Service self, int ptype,
-    int cmd, ddcl_Session * session, void * data, size_t sz){
+    int cmd, ddcl_Session * session, const void * data, size_t sz){
     Service * tos = _grep_handle(to);
-	Service * selfs = _grep_handle(self);
+    Service * selfs = _grep_handle(self);
     if(!tos || !selfs){
         return DDCL_SERVICE_UNKNOW_HANDLE;
     }
@@ -381,10 +407,10 @@ ddcl_call_b (ddcl_Service to, ddcl_Service self, int ptype,
 
 DDCLAPI int
 ddcl_call_raw (ddcl_Service to, ddcl_Service self, int ptype,
-    int cmd, ddcl_Session * session, void * data, size_t sz){
+    int cmd, ddcl_Session * session, const void * data, size_t sz){
     Service * tos = _grep_handle(to);
-	Service * selfs = _grep_handle(self);
-	if (!tos || !selfs) {
+    Service * selfs = _grep_handle(self);
+    if (!tos || !selfs) {
         return DDCL_SERVICE_UNKNOW_HANDLE;
     }
     *session = _new_session (selfs);
@@ -435,6 +461,10 @@ ddcl_start (ddcl_Service h){
         int ret = _pop_service_queue(svr, msg, 8);
         while (ret) {
             for (int i = 0; i < ret; i++){
+                if(svr->exit){
+                    ddcl_log(h, "exit service %ld", h);
+                    return 0;
+                }
                 _dispatch_msg(svr, &(msg[i]));
             }
             ret = _pop_service_queue(svr, msg, 8);

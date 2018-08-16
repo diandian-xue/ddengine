@@ -42,7 +42,7 @@ add_library(lualib
     ${HEADERS}
     ${SOURCES}
     )
-target_include_directories(lualib PUBLIC src)
+target_include_directories(lualib PUBLIC  ${SRC_PATH}/src)
 set_target_properties(lualib
     PROPERTIES
     OUTPUT_NAME lua)

@@ -78,7 +78,7 @@ int main(int argc, char * argv[]){
     ddcl_Handle svr = ddcl_new_service_not_worker(msgcb, NULL);
 
     ddcl_Session session;
-    ddcl_Handle listen = ddcl_listen_socket(svr, "0.0.0.0", port, 1000, &session);
+    ddcl_Handle listen = ddcl_listen_socket(svr, "0.0.0.0", port, 1000, 0);
 
     printf("start: %d %d  %d\n", svr, listen, port);
     fflush(stdout);

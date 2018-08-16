@@ -5,18 +5,17 @@ set(OUTPUT_PATH bin)
 set(EXECUTABLE_OUTPUT_PATH ${OUTPUT_PATH})
 set(LIBRARY_OUTPUT_PATH ${OUTPUT_PATH})
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/3rd/cmake/")
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/")
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/example/cmake/")
+include(3rd/cmake/lua.cmake)
+include(3rd/cmake/lua-cjson.cmake)
+include(3rd/cmake/glew.cmake)
+include(3rd/cmake/zlib.cmake)
+include(3rd/cmake/libpng.cmake)
+include(3rd/cmake/freetype.cmake)
 
-include(lua)
-include(lua-cjson)
-include(ddcl)
+include(cmake/ddcl.cmake)
+include(cmake/lddcl.cmake)
 
+include(cmake/ddgl.cmake)
 
-include(lddcl)
+include(example/cmake/simple-httpd.cmake)
 
-include(ddengine-test)
-include(simple-httpd)
-
-#include(ddcl_luabind)

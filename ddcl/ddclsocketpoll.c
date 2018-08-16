@@ -1,4 +1,4 @@
-﻿#define DDCL_CORE
+#define DDCL_CORE
 
 #include "ddclsocketpoll.h"
 #include "ddclstorage.h"
@@ -229,12 +229,12 @@ ddcl_set_evt_in_socket_poll(ddcl_SocketPoll * poll, DDSOCK_FD fd, int evt, void 
 
 #ifdef DDSOCKETPOLL_USE_KQUEUE
     struct kevent ke;
-    int opt = (evt | EVFILT_READ) ? EV_ENABLE : EV_DISABLE;
+    int opt = (evt & DDSOCKETPOLL_READ) ? EV_ENABLE : EV_DISABLE;
     EV_SET(&ke, fd, EVFILT_READ, opt, 0, 0, ud);
     kevent(poll->kqueue_fd, &ke, 1, NULL, 0, NULL);
 
 
-    opt = (evt | EVFILT_WRITE) ? EV_ENABLE : EV_DISABLE;
+    opt = (evt & DDSOCKETPOLL_WRITE) ? EV_ENABLE : EV_DISABLE;
     EV_SET(&ke, fd, EVFILT_WRITE, opt, 0, 0, ud);
     kevent(poll->kqueue_fd, &ke, 1, NULL, 0, NULL);
 #endif
@@ -365,11 +365,18 @@ ddcl_wait_socket_poll(ddcl_SocketPoll * poll, ddcl_SocketEvent * evts, int max, 
     if(n <= 0)
         return n;
     ddcl_SocketEvent * e;
+    int evt = 0;
     for(int i = 0; i < n; i ++){
         e = &(evts[i]);
         e->fd = 0;
         e->ud = evs[i].udata;
-        e->evt = evs[i].filter;
+        if(evs[i].filter == -2){
+            e->evt = DDSOCKETPOLL_WRITE;
+        }else if(evs[i].filter == -1){
+            e->evt = DDSOCKETPOLL_READ;
+        }else{
+            e->evt = 0;
+        }
     }
     return n;
 #endif

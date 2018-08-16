@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "ddclconfig.h"
 #ifdef DDSYS_WIN
@@ -63,8 +63,8 @@
 #ifdef DDSOCKETPOLL_USE_KQUEUE
 #include <sys/event.h>
 
-#define DDSOCKETPOLL_READ   EVFILT_READ
-#define DDSOCKETPOLL_WRITE  EVFILT_WRITE
+#define DDSOCKETPOLL_READ   1 //EVFILT_READ
+#define DDSOCKETPOLL_WRITE  2 //EVFILT_WRITE
 #define DDSOCKETPOLL_ERROR  0
 #endif
 

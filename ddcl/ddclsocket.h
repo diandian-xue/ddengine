@@ -34,7 +34,7 @@ DDCLAPI int
 ddcl_read_socket(ddcl_Socket fd, ddcl_Service from, size_t sz, ddcl_Session * session);
 
 DDCLAPI int
-ddcl_send_socket(ddcl_Socket fd, ddcl_Service from, void * buf, size_t sz);
+ddcl_send_socket(ddcl_Socket fd, ddcl_Service from, const void * buf, size_t sz);
 
 DDCLAPI int
 ddcl_close_socket(ddcl_Socket fd, ddcl_Service from);

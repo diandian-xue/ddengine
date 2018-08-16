@@ -2,14 +2,30 @@
 
 #include "ddcl.h"
 #include "lcl.h"
-#include "ddclservice.h"
 #include "ddcltimer.h"
+
+#include <stdio.h>
+
+static int
+_getconfig_dduint32(lua_State * L, const char * name, dduint32 * v, int index){
+    lua_pushstring(L, name);
+    lua_rawget(L, index);
+    if(!lua_isnil(L, -1)){
+        *v = (dduint32)luaL_checkinteger(L, -1);
+    }
+    lua_pop(L, 1);
+    return 0;
+}
 
 static int
 l_init (lua_State * L){
     ddcl conf;
     ddcl_default(&conf);
-    conf.worker = 2;
+    if (lua_gettop(L) > 0){
+        _getconfig_dduint32(L, "worker", &conf.worker, 1);
+        _getconfig_dduint32(L, "socket", &conf.socket, 1);
+        _getconfig_dduint32(L, "timer_ms", &conf.timer_ms, 1);
+    }
     int ret = ddcl_init(&conf);
     if(ret){
         luaL_error(L, ddcl_err(ret));

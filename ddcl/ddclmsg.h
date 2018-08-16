@@ -29,7 +29,7 @@ typedef struct tag_ddcl_Msg{
     ddcl_Service from;
     ddcl_Service self;
     ddcl_Session session;
-    void * data;
+    const void * data;
     size_t sz;
     int free;
 }ddcl_Msg;

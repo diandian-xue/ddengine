@@ -5,6 +5,7 @@
 #ifdef DDSYS_WIN
 #include <Windows.h>
 #else
+	#define _XOPEN_SOURCE 500
     #include <pthread.h>
     #include <unistd.h>
 

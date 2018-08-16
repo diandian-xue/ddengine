@@ -19,15 +19,15 @@ enum ddcl_HashType{
 
 typedef struct tag_ddcl_Map ddcl_Map;
 typedef int (* ddcl_MapKeyCmpFn)
-    (void * k1, dduint32 sz1, void * k2, dduint32 sz2);
-typedef dduint32 (* ddcl_MapKeyHashFn)(const char * k, dduint32 sz);
+    (void * k1, size_t sz1, void * k2, size_t sz2);
+typedef dduint32 (* ddcl_MapKeyHashFn)(const char * k, size_t sz);
 
 
 DDCLAPI dduint32
-ddcl_hash(const char * k, dduint32 sz, int type);
+ddcl_hash(const char * k, size_t sz, int type);
 
 DDCLAPI dduint32
-ddcl_map_hash(const char * k, dduint32 sz);
+ddcl_map_hash(const char * k, size_t sz);
 
 DDCLAPI ddcl_Map *
 ddcl_new_map(ddcl_MapKeyCmpFn cmp_fn, ddcl_MapKeyHashFn hash_fn);
