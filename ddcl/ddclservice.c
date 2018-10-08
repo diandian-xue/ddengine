@@ -286,7 +286,7 @@ ddcl_init_service_module (ddcl * conf){
     for (dduint32 i = 0; i < conf->worker; i ++){
         ddcl_Thread t;
         ddcl_new_thread(&t, _service_thread_fn, NULL, 0);
-        ddcl_set_map(_M.t_map, &t, sizeof(t), &t, sizeof(t), NULL);
+        ddcl_set_map(_M.t_map, &t, sizeof(t), &t, sizeof(t));
     }
     return 0;
 }
@@ -453,7 +453,7 @@ ddcl_start (ddcl_Service h){
         ddcl_unlock_spin(&(_M.t_lock));
         return DDCL_SERVICE_THREAD_IS_REGISTERED;
     }
-    ddcl_set_map(_M.t_map, &t, sizeof(t), &t, sizeof(t), NULL);
+    ddcl_set_map(_M.t_map, &t, sizeof(t), &t, sizeof(t));
     ddcl_unlock_spin(&(_M.t_lock));
 
     ddcl_Msg msg[8];

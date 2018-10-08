@@ -80,17 +80,17 @@ add_library(freetype
   ${BASE_SRCS}
 )
 set_target_properties(freetype PROPERTIES C_VISIBILITY_PRESET hidden)
-	
+
 target_compile_definitions(freetype PRIVATE FT2_BUILD_LIBRARY)
 target_include_directories(freetype PUBLIC ${FREETYPE_ROOT}/include)
-  
+
  if (WIN32)
   target_compile_definitions(
     freetype PRIVATE _CRT_SECURE_NO_WARNINGS _CRT_NONSTDC_NO_WARNINGS)
-	if(${BUILD_SHARED_LIBS})
-		target_compile_definitions(freetype PRIVATE DLL_EXPORT)
-	endif()
-	target_compile_definitions(freetype PUBLIC FT2_DLLIMPORT)
+    if(${BUILD_SHARED_LIBS})
+        target_compile_definitions(freetype PRIVATE DLL_EXPORT)
+    endif()
+    target_compile_definitions(freetype PUBLIC FT2_DLLIMPORT)
 endif ()
 
 target_link_libraries(freetype PUBLIC zlib)

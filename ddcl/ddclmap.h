@@ -39,8 +39,7 @@ DDCLAPI void
 ddcl_expand_map(ddcl_Map * map, dduint32 sz);
 
 DDCLAPI void *
-ddcl_set_map (ddcl_Map * map, 
-    void * k, size_t ksz, void * data, size_t datasz, size_t * oldsz);
+ddcl_set_map (ddcl_Map * map, void * k, size_t ksz, void * data, size_t datasz);
 
 DDCLAPI void *
 ddcl_get_map(ddcl_Map * map, void * k, size_t ksz, size_t * datasz);

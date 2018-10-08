@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "ddclconfig.h"
+#include "ddcl.h"
 
 enum ddcl_ERR{
     DDCL_OK = 0,
@@ -20,4 +20,3 @@ enum ddcl_ERR{
 
 DDCLAPI const char *
 ddcl_err(int err);
-

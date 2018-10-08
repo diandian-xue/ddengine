@@ -1,4 +1,4 @@
-#define CLLUA_CORE
+#define DDCLLUA_CORE
 
 #include "lcl.h"
 #include "lservice.h"

@@ -23,3 +23,9 @@ ddcl_del_in_storage (ddcl_Storage * hs, ddcl_Handle h);
 
 DDCLAPI void
 ddcl_expand_storage (ddcl_Storage * hs, dduint32 size);
+
+DDCLAPI void
+ddcl_begin_storage(ddcl_Storage * hs);
+
+DDCLAPI int
+ddcl_next_storage(ddcl_Storage * hs, ddcl_Handle * h, void ** p);

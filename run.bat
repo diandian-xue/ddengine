@@ -1,9 +1,6 @@
 @echo off
 
-cd /d %DDENGINE_PROJ%
+cd /d %DDENGINE_ROOT%
 
-:: bin\\Debug\\simple-httpd.exe
-:: bin\\Debug\\ddengine_test.exe
-
-bin\\Debug\\lua.exe %DDENGINE_ROOT%\\example\\simple-httpd\\main.lua
-
+rem %DDENGINE_PROJ%\\bin\\Debug\\lua.exe example\\simple-gl\\main.lua
+%DDENGINE_PROJ%\\bin\\Debug\\simple-gl.exe

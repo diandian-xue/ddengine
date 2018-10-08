@@ -16,7 +16,7 @@ static ddcl_Handle _log_svr;
 
 static void
 default_log_service_cb(ddcl_Msg * msg){
-    printf("[:%08x] ", msg->from);
+    //printf("[:%08x] ", msg->from);
     printf("%s\n", (const char *)msg->data);
     fflush(stdout);
 }

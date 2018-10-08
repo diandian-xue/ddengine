@@ -8,20 +8,20 @@
 #include "lauxlib.h"
 
 #ifdef DDSYS_WIN
-    #ifdef CLLUA_EXPORTS
-        #ifdef CLLUA_CORE
-            #define CLLUA    __declspec(dllexport)
+    #ifdef DDCLLUA_EXPORTS
+        #ifdef DDCLLUA_CORE
+            #define DDCLLUA    __declspec(dllexport)
         #else
-            #define CLLUA    __declspec(dllimport)
+            #define DDCLLUA    __declspec(dllimport)
         #endif
     #else
-        #define CLLUA extern
+        #define DDCLLUA extern
     #endif
 #else
-    #ifdef CLLUA_EXPORTS
-        #define CLLUA extern
+    #ifdef DDCLLUA_EXPORTS
+        #define DDCLLUA extern
     #else
-        #define CLLUA
+        #define DDCLLUA
     #endif
 #endif
 
@@ -44,6 +44,6 @@
 #define DDLUA_PUSHFUNC(L, NAME, F)  lua_pushstring(L, NAME); lua_pushcfunction(L, F); lua_settable(L, -3)
 #define DDLUA_PUSHENUM(L, NAME, M)  lua_pushstring(L, NAME); lua_pushinteger(L, M); lua_settable(L, -3)
 
-CLLUA int
+DDCLLUA int
 luaopen_lddcl_core (lua_State * L);
 

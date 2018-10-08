@@ -1,4 +1,4 @@
-#define CLLUA_CORE
+#define DDCLLUA_CORE
 
 #include "lcl.h"
 #include "lservice.h"
@@ -77,14 +77,16 @@ _callmsg_in_coroutine(ddcl_Msg * msg, void * fn_flag){
     lua_pushinteger(L, msg->session);
     lua_pushinteger(L, msg->ptype);
     lua_pushinteger(L, msg->cmd);
-    lua_pushlstring(L, msg->data ? msg->data : "", msg->sz);
+    lua_pushlightuserdata(L, (void *)msg->data);
+    lua_pushinteger(L, msg->sz);
 
-    int ret = lua_resume(L, NULL, 6);
+    int ret = lua_resume(L, NULL, 7);
     switch(ret){
         case LUA_OK:
             break;
         case LUA_YIELD:
-            if(msg->session){
+            /*
+            if(msg->session && false){
                 lua_rawgetp(L, LUA_REGISTRYINDEX, &ctx->session_map);
                 lua_pushinteger(L, msg->session);
                 lua_pushvalue(L, -2);
@@ -92,6 +94,7 @@ _callmsg_in_coroutine(ddcl_Msg * msg, void * fn_flag){
                 lua_pop(L, 1);
             }
             lua_pop(L, 1);
+             */
             break;
         default:{
             size_t errsz;
@@ -105,7 +108,6 @@ _callmsg_in_coroutine(ddcl_Msg * msg, void * fn_flag){
             }
             break;
         }
-
     }
     return 0;
 }
@@ -125,7 +127,8 @@ _excute_resp_msg(ddcl_Msg * msg){
     Context * ctx = (Context *)msg->ud;
     lua_State * L = ctx->L;
     if (!msg->session){
-        return luaL_error(L, "resp msg but session == 0");
+        ddcl_log(ctx->svr, "resp msg but session == 0");
+        return 0;
     }
 
     lua_rawgetp(L, LUA_REGISTRYINDEX, &ctx->session_map);
@@ -134,13 +137,12 @@ _excute_resp_msg(ddcl_Msg * msg){
 
     switch(lua_type(L, -1)){
         case LUA_TFUNCTION:
-            lua_pop(L, 2);
             return _callmsg_in_coroutine(msg, NULL);
         case LUA_TTHREAD:
             break;
         default:
-            lua_pop(L, 2);
-            return luaL_error(L, "unknow session[%d] for resp msg", msg->session);
+            ddcl_log(ctx->svr, "unknow session[%d] for resp msg", msg->session);
+            return 0;
     }
 
     lua_State * nL = lua_tothread(L, -1);
@@ -150,14 +152,16 @@ _excute_resp_msg(ddcl_Msg * msg){
         lua_pushnil(L);
         lua_rawset(L, -3);
         luaL_traceback(L, nL, msg->data, 0);
-        return luaL_error(L, "call faild: %s", lua_tostring(L, -1));
+        ddcl_log(ctx->svr, "call faild: %s", lua_tostring(L, -1));
+        return 0;
     }
     lua_settop(nL, 0);
-    lua_pushlstring(nL, msg->data ? msg->data : "", msg->sz);
-    int ret = lua_resume(nL, NULL, 1);
+    lua_pushlightuserdata(nL, (void *)msg->data);
+    lua_pushinteger(nL, msg->sz);
+    int ret = lua_resume(nL, NULL, 2);
     switch(ret){
         case LUA_OK:
-            lua_pushvalue(L, -2);
+            lua_rawgetp(L, LUA_REGISTRYINDEX, &ctx->session_map);
             lua_pushinteger(L, msg->session);
             lua_pushnil(L);
             lua_rawset(L, -3);
@@ -173,7 +177,6 @@ _excute_resp_msg(ddcl_Msg * msg){
             lua_rawset(L, -3);
             break;
     }
-    lua_settop(nL, 0);
     return 0;
 }
 
@@ -194,9 +197,6 @@ l_msg_cbfn(ddcl_Msg * msg){
             break;
     }
     lua_settop(L, top);
-    if(lua_gettop(L) != top){
-        ddcl_log(ctx->svr, "rdiff %d", lua_gettop(L) - top);
-    }
     return 0;
 }
 

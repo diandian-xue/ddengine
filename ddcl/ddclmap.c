@@ -210,8 +210,7 @@ ddcl_expand_map(ddcl_Map * map, dduint32 sz){
 }
 
 DDCLAPI void *
-ddcl_set_map (ddcl_Map * map, void * k, size_t ksz, 
-    void * data, size_t datasz, size_t * oldsz){
+ddcl_set_map (ddcl_Map * map, void * k, size_t ksz, void * data, size_t datasz){
     dduint32 hash = map->hash_fn((const char *)k, ksz);
     dduint32 index = hash % map->slot_sz;
 
@@ -223,7 +222,6 @@ ddcl_set_map (ddcl_Map * map, void * k, size_t ksz,
             entry = entry->next;
             continue;
         }
-        void * tmp = entry->data;
         if(data){
             if (datasz){
                 entry->data = ddcl_malloc(datasz);
@@ -231,9 +229,8 @@ ddcl_set_map (ddcl_Map * map, void * k, size_t ksz,
             }else{
                 entry->data = data;
             }
-            if(oldsz) *oldsz = entry->datasz;
             entry->datasz = datasz;
-            return tmp;
+            return entry->data;
         }
         if(pre)
             pre->next = entry->next;
@@ -252,7 +249,7 @@ ddcl_set_map (ddcl_Map * map, void * k, size_t ksz,
         free(entry->k);
         free(entry);
         map->sz --;
-        return tmp;
+        return NULL;
     }
 
     if(!data)
@@ -286,7 +283,7 @@ ddcl_set_map (ddcl_Map * map, void * k, size_t ksz,
     }
     if(map->sz >= map->threshold)
         ddcl_expand_map(map, map->slot_sz * 2);
-    return NULL;
+    return entry->data;
 }
 
 DDCLAPI void *

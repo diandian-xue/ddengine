@@ -65,11 +65,13 @@ end
 
 local function connect_ip()
     local start_ms = ddcl.now()
-    local data = ddcl.connect_socket("www.baidu.com", 80)
+    local data, sz = ddcl.connect_socket("www.baidu.com", 80)
+    data = ddcl.packstring(data, sz)
     local fd, cmd = ddcl.parse_socket_rsp(data)
     ddcl.send_socket(fd, "GET / HTTP/1.1\r\nHost: www.baidu.com\r\nUser-Agent: curl/7.47.0\r\nAccept: */*\r\n\r\n")
     while true do
-        local rd = ddcl.read_socket(fd, 0)
+        local rd, sz = ddcl.read_socket(fd, 0)
+        rd = ddcl.packstring(rd, sz)
         local fd, cmd, body = ddcl.parse_socket_rsp(rd)
         if cmd == ddcl.DDCL_SOCKET_ERROR then
             ddcl.log("close socket fd", fd, cmd)
@@ -83,6 +85,7 @@ end
 ddcl.start_non_worker(function(svr, source)
     ddcl.timeout(500, timeout)
     ddcl.callback(function(svr, source, session, ptype, cmd, data, sz)
+        data = ddcl.packstring(data, sz)
         if cmd == ddcl.DDCL_CMD_SOCKET then
             local fd, socket_cmd, data = ddcl.parse_socket_rsp(data)
             if socket_cmd == ddcl.DDCL_SOCKET_ACCEPT then

@@ -13,9 +13,14 @@ include(3rd/cmake/libpng.cmake)
 include(3rd/cmake/freetype.cmake)
 
 include(cmake/ddcl.cmake)
-include(cmake/lddcl.cmake)
-
 include(cmake/ddgl.cmake)
 
+
+include(cmake/lddcl.cmake)
+include(cmake/lddgl.cmake)
+include(cmake/ltexture.cmake)
+
+
 include(example/cmake/simple-httpd.cmake)
+include(example/cmake/simple-gl.cmake)
 

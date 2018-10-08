@@ -1,4 +1,4 @@
-#define CLLUA_CORE
+#define DDCLLUA_CORE
 
 #include "ddcl.h"
 #include "lcl.h"
@@ -45,6 +45,32 @@ l_systime (lua_State * L){
     return 1;
 }
 
+static int
+l_packstring(lua_State * L){
+    void * data = lua_touserdata(L, 1);
+    if(lua_gettop(L) > 1){
+        if(data){
+            lua_Integer sz = luaL_checkinteger(L, 2);
+            lua_pushlstring(L, (const char *)data, sz);
+            return 1;
+        }
+    }else{
+        if(data){
+            lua_pushstring(L, (const char *)data);
+            return 1;
+        }
+    }
+    return 0;
+}
+
+static luaL_Reg _reg[] = {
+    { "init", l_init },
+    { "now", l_now },
+    { "systime", l_systime },
+    { "packstring", l_packstring },
+    { NULL, NULL },
+};
+
 
 extern int
 openlib_file (lua_State * L);
@@ -58,15 +84,7 @@ openlib_service (lua_State * L);
 extern int
 openlib_socket (lua_State * L);
 
-static luaL_Reg _reg[] = {
-    { "init", l_init },
-    { "now", l_now },
-    { "systime", l_systime },
-    { NULL, NULL },
-};
-
-
-CLLUA int
+DDCLLUA int
 luaopen_lddcl_core(lua_State * L){
     luaL_checkversion(L);
     DDLUA_NEWLIB(L, "lddcl.core", _reg);

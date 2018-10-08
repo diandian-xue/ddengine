@@ -11,7 +11,7 @@ add_library(lddcl
 
 
 if(${BUILD_SHARED_LIBS})
-    target_compile_definitions(lddcl PUBLIC CLLUA_EXPORTS)
+    target_compile_definitions(lddcl PUBLIC DDCLLUA_EXPORTS)
 endif()
 
 target_link_libraries(lddcl PUBLIC ddcl)
