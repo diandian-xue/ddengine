@@ -245,7 +245,7 @@ divide_chars(const unsigned char * chars, FT_Face face, GlyphLine lines[100],
                 l ++;
                 yoffet += fh + def->vgap;
             }
-            if (def->maxw && yoffet + fh > def->maxw)
+            if (def->maxh && yoffet + fh > def->maxh)
                 break;
             else {
                 ch = chars[++i];
@@ -304,15 +304,14 @@ ddgl_new_texture_with_utf8(const char * str, ddgl_FontFace * font, ddgl_TextDef 
     FT_Face face = font->face;
     FT_Set_Pixel_Sizes(face, def->size, def->size);
     GlyphLine lines[100] = { 0 };
-    unsigned width, height;
-    unsigned line_count = divide_chars(str, face, lines, def, &width, &height);
+    unsigned pw, ph;
+    unsigned line_count = divide_chars(str, face, lines, def, &pw, &ph);
 
     CharGlyph * cg;
     GlyphLine * gl;
     FT_Error    err;
     FT_Glyph    glyph;
-    unsigned char * big_map = calloc(1, sizeof(unsigned char) * 4 * width * height);
-
+    unsigned char * big_map = calloc(1, sizeof(unsigned char) * 4 * pw * ph);
     for (unsigned i = 0; i < line_count; i++) {
         gl = &(lines[i]);
         for (unsigned j = 0; j < gl->count; j++) {
@@ -322,6 +321,7 @@ ddgl_new_texture_with_utf8(const char * str, ddgl_FontFace * font, ddgl_TextDef 
             err = FT_Get_Glyph(face->glyph, &glyph);
             err = FT_Glyph_To_Bitmap(&glyph, FT_RENDER_MODE_NORMAL, 0, 1);
             FT_Bitmap * bitmap = &(((FT_BitmapGlyph)glyph)->bitmap);
+
             if (cg->ch == '2' && 0) {
                 for (unsigned h = 0; h < bitmap->rows; h++) {
                     for (unsigned w = 0; w < bitmap->width; w++) {
@@ -330,10 +330,11 @@ ddgl_new_texture_with_utf8(const char * str, ddgl_FontFace * font, ddgl_TextDef 
                     printf("\n");
                 }
             }
+
             for (unsigned gh = 0; gh < cg->glyphh; gh++) {
                 for (unsigned gw = 0; gw < cg->glyphw; gw++) {
                     if (bitmap->buffer[gh * cg->glyphw + gw]) {
-                        big_map[((cg->py + gh) * height + (cg->px + gw)) * 4 + 3] = bitmap->buffer[gh * cg->glyphw + gw];
+                        big_map[((cg->py + gh) * pw + (cg->px + gw)) * 4 + 3] = bitmap->buffer[gh * cg->glyphw + gw];
                     }
                 }
             }
@@ -345,8 +346,8 @@ ddgl_new_texture_with_utf8(const char * str, ddgl_FontFace * font, ddgl_TextDef 
     ddcl_Handle h = ddcl_register_in_storage(_TexS, &tex);
     tex->h = h;
     tex->ref = 1;
-    tex->size.width = width;
-    tex->size.height = height;
+    tex->size.width = pw;
+    tex->size.height = ph;
     ddgl_gen_opengl_texture_with_utf8map(tex, big_map);
     free(big_map);
     return tex;

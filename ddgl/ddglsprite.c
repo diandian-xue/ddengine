@@ -28,6 +28,7 @@ ddgl_new_sprite(){
     sp->position.w = 1;
     sp->scale.x = sp->scale.y = sp->scale.z = 1;
     sp->name = DDGL_SPRITE_NAME;
+    sp->dirty = 1;
     ddgl_identity_matrix(&(sp->matrix));
     return sp;
 }

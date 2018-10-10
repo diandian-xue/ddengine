@@ -33,7 +33,6 @@ render_shape2d(ddgl_Shape2d * sp){
     }
 
     ddgl_Matrix * m = &(sp->matrix);
-
     ddgl_Vertex vertex[4] = {0};
     vertex[0].position = vec(-width, height, m);
     vertex[1].position = vec(-width, -height, m);

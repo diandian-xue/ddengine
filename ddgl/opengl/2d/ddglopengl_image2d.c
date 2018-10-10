@@ -17,14 +17,18 @@ ddcl_Handle DDGL_OPENGL_IMAGE2D_RENDER;
 
 const char DDGL_OPENGL_IMAGE2D_SHADER_VERTS[] = " \n\
     out vec4 v_color; \n\
+    out vec2 v_uv; \n\
     void main(){ \n\
         gl_Position = position; \n\
         v_color = color; \n\
+        v_uv = uv; \n\
     }\n";
 const char DDGL_OPENGL_IMAGE2D_SHADER_FRAGS[] = " \n\
     in vec4 v_color; \n\
+    in vec2 v_uv; \n\
+    uniform sampler2D texture; \n\
     void main(){ \n\
-        gl_FragColor = v_color; \n\
+        gl_FragColor = texture2D(texture, v_uv) * v_color; \n\
     }\n";
 
 typedef struct tag_RenderExtend{

@@ -8,6 +8,7 @@
 #include "ddglsprite.h"
 #include "opengl/2d/ddglopengl_shape2d.h"
 #include "2d/ddglshape2d.h"
+#include "2d/ddglimage2d.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -32,8 +33,10 @@ mainsvr_msgcb(ddcl_Msg * msg){
         _window->make_current(_window);
         _window->clear(_window);
 
-        ddgl_set_x(_shape2d, _shape2d->position.x + 0.002);
-        _shape2d->rotation.z += 0.01;
+        //ddgl_set_x(_shape2d, _shape2d->position.x + 0.002);
+        _shape2d->rotation.y += 0.01;
+		_shape2d->rotation.z += 0.01;
+		_shape2d->rotation.x += 0.01;
         _shape2d->dirty = 1;
         ddgl_set_x(_child, 0.1);
         _child->rotation.z += 0.01;
@@ -48,6 +51,14 @@ mainsvr_msgcb(ddcl_Msg * msg){
         _window->make_current(NULL);
         break;
     }
+}
+
+typedef unsigned char uchar;
+
+static ddgl_Color
+make_color(uchar r, uchar g, uchar b, uchar a) {
+	ddgl_Color color = { r, g, b, a };
+	return color;
 }
 
 
@@ -88,6 +99,27 @@ int main(){
         child->color.g = 255;
         ddgl_add_child(_shape2d, child);
     }
+
+    ddgl_Texture * tex = ddgl_new_texture_with_png_file("C:\\Users\\ddgam\\Desktop\\logo.png");
+    ddgl_Image2d * img = ddgl_new_image2d(tex);
+    ddgl_add_child(_shape2d, img);
+
+    ddgl_FontFace * ff = ddgl_new_fontface("C:\\Windows\\fonts\\simhei.ttf");
+    ddgl_TextDef def = {0};
+    def.size = 120;
+    ddgl_Texture * str_tex = ddgl_new_texture_with_utf8("diandian", ff, &def);
+
+
+	ddgl_Image2d * str_img2 = ddgl_new_image2d(str_tex);
+	str_img2->position.y = 0.81f;
+	str_img2->position.x = 0.02f;
+	str_img2->color = make_color(50, 50, 100, 255);
+	ddgl_add_child(_shape2d, str_img2);
+
+    ddgl_Image2d * str_img = ddgl_new_image2d(str_tex);
+    str_img->position.y = 0.8f;
+    ddgl_add_child(_shape2d, str_img);
+
 
 
     _mainsvr = ddcl_new_service_not_worker(mainsvr_msgcb, NULL);
